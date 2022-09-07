@@ -1,0 +1,128 @@
+/* use #f0f0f0 and #1f1f1f and #292929*/
+/* font-family: 'Source Code Pro', monospace; */
+
+* {
+    font-family: 'Source Code Pro', monospace;
+}
+
+a {
+    font-size: 32px;
+}
+
+body {
+    background-color: #292929;
+    color: #f0f0f0;
+    padding: 20px 20px 0;
+    transition: background 0.2s linear;
+}
+
+main {
+    background-color: #1f1f1f;
+    border-radius: 6px;
+    box-shadow: 3px 3px 12px black;
+    max-width: 90vw;
+    max-height: 85vh;
+    padding: 20px 20px 0;
+    margin: auto auto 20px;
+    overflow: auto;
+    transition: background 0.2s linear;
+}
+
+ol {
+    list-style: none;
+    margin-bottom: 20px;
+    margin-top: 0;
+    padding: 0;
+    min-height: 40px;
+}
+
+li {
+    padding: 10px;
+    word-wrap: break-word;
+}
+
+li:nth-child(odd) {
+    background-color: #e3e3e3;
+    border-radius: 6px;
+    transition: background 0.2s linear;
+}
+
+li:nth-child(odd).dark {
+    background-color: #0f0f0f;
+}
+
+form {
+    background-color: lightsteelblue;
+    border-radius: 6px;
+    margin-top: 20px;
+    padding: 10px;
+    transition: background 0.2s linear;
+    display: -webkit-flex;
+}
+
+form.dark {
+    background-color: #333743;
+    color: white;
+}
+
+button {
+    background-color: cornflowerblue;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    transition: background 0.2s linear;
+}
+
+input {
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+    padding: 5px;
+}
+
+input.dark {
+    background-color: #292929;
+    color: white;
+}
+
+#initials {
+    width: 80px;
+    float: left;
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+#message {
+    -webkit-flex: 1;
+}
+
+#send {
+    background-color: cornflowerblue;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    transition: background 0.2s linear;
+    float: right;
+    margin-left: 5px;
+}
+
+#darkmode {
+    background-color: cornflowerblue;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    margin: 10px auto;
+    display: block;
+}
