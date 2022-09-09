@@ -1,31 +1,92 @@
 /* use #f0f0f0 and #1f1f1f and #292929*/
 /* font-family: 'Source Code Pro', monospace; */
 
+:root {
+    --background-color: #292929;
+    --black: #1f1f1f;
+    --secondary-color: #FFC66D;
+}
+
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    background-color: #292929;
+    padding: 0 20px 0;
+    color: #f0f0f0;
+}
+
 * {
     font-family: 'Source Code Pro', monospace;
-    background-color: #292929;
-    color: #f0f0f0;
-    padding: 20px 20px 0;
+    /*transition: 0.4s ease-in;*/
 }
 
-#profile {
-
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li {
+    padding: 0 20px 0;
+}
+
+#name {
+    font-size: 32px;
+    color: var(--secondary-color);
+}
+
+/*.typewriter h1 {*/
+/*    overflow: hidden;*/
+/*    border-right: .15em solid var(--secondary-color);*/
+/*    white-space: nowrap;*/
+/*    margin: 0 auto;*/
+/*    !*letter-spacing: .15em;*!*/
+/*    animation:*/
+/*        typing 3.5s steps(40, end),*/
+/*        blink-caret 1s step-end infinite;*/
+/*}*/
+
+/*!* typing effect *!*/
+/*@keyframes typing {*/
+/*    from { width: 0 }*/
+/*    to { width: 100% }*/
+/*}*/
+
+/*!* typewriter cursor effect *!*/
+/*@keyframes blink-caret {*/
+/*    from, to { border-color: transparent }*/
+/*    50% { border-color: var(--secondary-color); }*/
+/*}*/
 
 body {
-    display: flex;
+    /*display: flex;*/
     justify-content: space-between;
 }
 
-#profile-pic {
+img {
     /*position: fixed;*/
     /*top: 20px;*/
     /*right: 20px;*/
     border: thick solid white;
-    border-radius: 25px;
+    border-radius: 5%;
 }
 
 a {
     padding: 0;
     font-size: 32px;
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+    transition: 0.4s ease-in;
 }
