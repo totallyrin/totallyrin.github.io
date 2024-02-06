@@ -1,5 +1,5 @@
 # File: .github/workflows/publish.yml
-name: publish-to-github-pages
+name: publish-to-github-app
 on:
   push:
     branches:
@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: "app"
   cancel-in-progress: false
 
 jobs:
@@ -26,7 +26,7 @@ jobs:
         uses: ./.github/workflows/setup-node
 
       - name: Setup Pages ⚙️
-        uses: actions/configure-pages@v4
+        uses: actions/configure-app@v4
         with:
           static_site_generator: next
 
@@ -34,13 +34,13 @@ jobs:
         run: npx next build
 
       - name: Upload artifact 📡
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-app-artifact@v3
         with:
           path: ./out
 
   deploy:
     environment:
-      name: github-pages
+      name: github-app
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
@@ -49,4 +49,4 @@ jobs:
     steps:
       - name: Publish to GitHub Pages 🚀
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-app@v4
