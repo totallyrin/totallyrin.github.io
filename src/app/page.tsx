@@ -11,7 +11,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { bg, pinkie, sunflower } from "../../utils/utils";
-import RRuleInput from "react-rrule-input/src";
+import RRuleInput from "react-mui-rrule-input/src";
 import { useState } from "react";
 import Carousel from "../../components/Carousel";
 import { muiTheme } from "../../utils/MUITheme";
