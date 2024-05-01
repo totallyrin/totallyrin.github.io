@@ -44,10 +44,10 @@ export default function Home() {
           <Heading size="md">And I really love programming.</Heading>
           <Spacer />
           <Text>
-            I'm a web developer based in Ontario, Canada.
+            {"I'm a web developer based in Ontario, Canada."}
             <br />
-            Currently, I'm focusing on honing my frontend skills as well as
-            exploring new and exciting projects.
+            {"Currently, I'm focusing on honing my frontend skills as well" +
+              " as exploring new and exciting projects."}
           </Text>
           <Spacer />
           <Button>Check out some of my projects!</Button>
@@ -55,7 +55,7 @@ export default function Home() {
           <Text>{rruleText}</Text>
           <Carousel
             elements={[
-              <Box>
+              <Box key={0}>
                 <RRuleInput
                   setDisplayText={setRRuleText}
                   rrule={rrule}
@@ -64,7 +64,7 @@ export default function Home() {
                 />
               </Box>,
             ]}
-            titles={["react-rrule-input"] as string[]}
+            titles={["react-mui-rrule-input"] as string[]}
           />
         </Stack>
       </Box>
