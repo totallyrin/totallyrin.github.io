@@ -36,7 +36,7 @@ export default function Carousel({
         {/*<ArrowBackIcon />*/}
       </Button>
       {elements.map((e, index: number) => (
-        <Flex ml="auto" mr="auto" justify="center">
+        <Flex ml="auto" mr="auto" justify="center" key={index}>
           <Card
             borderWidth="3px"
             borderRadius="lg"
