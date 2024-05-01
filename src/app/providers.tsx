@@ -1,9 +1,9 @@
 // app/providers.tsx
-'use client'
+"use client";
 
-import {ChakraProvider} from '@chakra-ui/react';
-import {theme} from "../../utils/theme";
+import { ChakraProvider } from "@chakra-ui/react";
+import { theme } from "../../utils/theme";
 
-export default function Providers({children}: { children: React.ReactNode }) {
-  return <ChakraProvider theme={theme}>{children}</ChakraProvider>
+export default function Providers({ children }: { children: React.ReactNode }) {
+  return <ChakraProvider theme={theme}>{children}</ChakraProvider>;
 }

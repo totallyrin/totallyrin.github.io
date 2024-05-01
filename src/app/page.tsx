@@ -10,9 +10,16 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { bg, sunflower } from "../../utils/utils";
+import { bg, pinkie, sunflower } from "../../utils/utils";
+import RRuleInput from "react-rrule-input/src";
+import { useState } from "react";
+import Carousel from "../../components/Carousel";
+import { muiTheme } from "../../utils/MUITheme";
 
 export default function Home() {
+  const [rruleText, setRRuleText] = useState("");
+  const [rrule, setRRule] = useState("");
+
   return (
     <Box sx={{ bg: bg }}>
       <Navbar />
@@ -23,29 +30,42 @@ export default function Home() {
         }}
       >
         <Stack direction="column" spacing={2} align="left">
-          {/*<Text></Text>*/}
-          <HStack>
-            <Heading>Hi, I'm Lucy.</Heading>
-            <Text pt={1.5}>[she / her]</Text>
+          <HStack align="baseline">
+            <Heading>
+              {"Hi, I'm "}
+              <Box as="span" color={pinkie}>
+                {"Lucy"}
+              </Box>
+              {"."}
+            </Heading>
+            <Text>[she / her]</Text>
           </HStack>
+
           <Heading size="md">And I really love programming.</Heading>
           <Spacer />
           <Text>
             I'm a web developer based in Ontario, Canada.
-            <Spacer />
+            <br />
             Currently, I'm focusing on honing my frontend skills as well as
             exploring new and exciting projects.
           </Text>
           <Spacer />
-          <Button
-            variant="outline"
-            colorScheme="sunflower"
-            sx={{
-              _hover: { bg: sunflower, color: bg },
-            }}
-          >
-            Check out some of my projects!
-          </Button>
+          <Button>Check out some of my projects!</Button>
+
+          <Text>{rruleText}</Text>
+          <Carousel
+            elements={[
+              <Box>
+                <RRuleInput
+                  setDisplayText={setRRuleText}
+                  rrule={rrule}
+                  setRRule={setRRule}
+                  theme={muiTheme}
+                />
+              </Box>,
+            ]}
+            titles={["react-rrule-input"] as string[]}
+          />
         </Stack>
       </Box>
     </Box>

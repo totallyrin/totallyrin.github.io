@@ -1,13 +1,12 @@
-import {defineStyleConfig, extendTheme} from "@chakra-ui/react";
-import {bg} from "./utils";
-
-const Button = defineStyleConfig({})
+import { extendTheme, StyleFunctionProps } from "@chakra-ui/react";
+import { bg, sunflower } from "./utils";
 
 export const theme = extendTheme({
   global: {
     body: {
-      bg: bg
-    }
+      bg: bg,
+      color: sunflower,
+    },
   },
   colors: {
     sunflower: {
@@ -21,7 +20,48 @@ export const theme = extendTheme({
       700: "#FFB947",
       800: "#FFB133",
       900: "#FFA91F",
-    }
+    },
+    pinkie: {
+      50: "#FFE6E6",
+      100: "#FFCCCC",
+      200: "#FFB3B3",
+      300: "#FF9999",
+      400: "#FF8080",
+      500: "#FC6471",
+      600: "#FC5D5D",
+      700: "#FC5151",
+      800: "#FC4747",
+      900: "#FC3D3D",
+    },
   },
-  components: {}
-})
+  components: {
+    Button: {
+      baseStyle: {
+        _hover: {
+          bg: sunflower,
+          color: bg,
+        },
+      },
+      variants: {
+        outline: (props: StyleFunctionProps) => ({
+          _hover: {
+            border: "1px solid",
+            borderColor: props.theme.colors[props.colorScheme][500],
+            bg: props.theme.colors[props.colorScheme][500],
+            color: bg,
+          },
+        }),
+        ghost: (props: StyleFunctionProps) => ({
+          _hover: {
+            bg: props.theme.colors[props.colorScheme][500],
+            color: bg,
+          },
+        }),
+      },
+      defaultProps: {
+        colorScheme: "sunflower",
+        variant: "outline",
+      },
+    },
+  },
+});

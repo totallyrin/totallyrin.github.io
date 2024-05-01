@@ -6,13 +6,11 @@ import {
   IconButton,
   Spacer,
   useMediaQuery,
-  useTheme,
 } from "@chakra-ui/react";
-import { bg, sunflower } from "../utils/utils";
+import { sunflower } from "../utils/utils";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 export default function Navbar() {
-  const theme = useTheme();
   const [onMobile] = useMediaQuery("(min-width: 800px)", {
     ssr: true,
     fallback: false, // return false on the server, and re-evaluate on the client side
@@ -26,17 +24,7 @@ export default function Navbar() {
         p: 10,
       }}
     >
-      <Button
-        variant="ghost"
-        colorScheme="sunflower"
-        size="lg"
-        sx={{
-          _hover: {
-            bg: sunflower,
-            color: bg,
-          },
-        }}
-      >
+      <Button variant="ghost" size="lg">
         totallyrin
       </Button>
       <Spacer />
@@ -44,67 +32,11 @@ export default function Navbar() {
       <Spacer />
       {onMobile ? (
         <HStack>
-          <Button
-            variant="ghost"
-            colorScheme="sunflower"
-            sx={{
-              _hover: {
-                bg: sunflower,
-                color: bg,
-              },
-            }}
-          >
-            01. About
-          </Button>
-          <Button
-            variant="ghost"
-            colorScheme="sunflower"
-            sx={{
-              _hover: {
-                bg: sunflower,
-                color: bg,
-              },
-            }}
-          >
-            02. Projects
-          </Button>
-          <Button
-            variant="ghost"
-            colorScheme="sunflower"
-            sx={{
-              _hover: {
-                bg: sunflower,
-                color: bg,
-              },
-            }}
-          >
-            03. Experience
-          </Button>
-          <Button
-            variant="ghost"
-            colorScheme="sunflower"
-            sx={{
-              _hover: {
-                bg: sunflower,
-                color: bg,
-              },
-            }}
-          >
-            04. Contact
-          </Button>
-          <Button
-            variant="outline"
-            colorScheme="sunflower"
-            sx={{
-              ml: 1,
-              _hover: {
-                bg: sunflower,
-                color: bg,
-              },
-            }}
-          >
-            Resume
-          </Button>
+          <Button variant="ghost">01. About</Button>
+          <Button variant="ghost">02. Projects</Button>
+          <Button variant="ghost">03. Experience</Button>
+          <Button variant="ghost">04. Contact</Button>
+          <Button>Resume</Button>
         </HStack>
       ) : (
         <IconButton
