@@ -15,7 +15,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { Link } from "@chakra-ui/next-js";
 
 export default function Navbar() {
-  const [onMobile] = useMediaQuery("(min-width: 800px)", {
+  const [onMobile] = useMediaQuery("(max-width: 800px)", {
     ssr: true,
     fallback: false, // return false on the server, and re-evaluate on the client side
   });

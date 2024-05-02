@@ -18,7 +18,10 @@ import Carousel from "../../components/Carousel";
 import { muiTheme } from "../../utils/MUITheme";
 
 export default function Home() {
-  const [onMobile] = useMediaQuery(["(max-width: 800px)"]);
+  const [onMobile] = useMediaQuery(["(max-width: 800px)"], {
+    ssr: true,
+    fallback: false, // return false on the server, and re-evaluate on the client side
+  });
 
   const [rruleText, setRRuleText] = useState("");
   const [rrule, setRRule] = useState("");
