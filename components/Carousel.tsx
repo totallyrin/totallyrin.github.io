@@ -3,6 +3,7 @@ import {
   Button,
   Card,
   CardBody,
+  CardFooter,
   CardHeader,
   Flex,
   Heading,
@@ -14,9 +15,11 @@ import { bg } from "../utils/utils";
 export default function Carousel({
   elements,
   titles,
+  footers,
 }: {
   elements: React.JSX.Element[];
   titles?: string[];
+  footers?: React.JSX.Element[];
 }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -63,6 +66,7 @@ export default function Carousel({
               </CardHeader>
             )}
             <CardBody>{e}</CardBody>
+            {footers && <CardFooter>{footers[index]}</CardFooter>}
           </Card>
         </Flex>
       ))}
