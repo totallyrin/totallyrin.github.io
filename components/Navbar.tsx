@@ -87,6 +87,7 @@ export default function Navbar() {
         </HStack>
       ) : (
         <IconButton
+          size="lg"
           variant="ghost"
           colorScheme="sunflower"
           icon={<HamburgerIcon />}
