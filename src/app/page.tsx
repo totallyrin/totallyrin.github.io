@@ -9,6 +9,7 @@ import {
   Spacer,
   Stack,
   Text,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { bg, pinkie, sunflower } from "../../utils/utils";
 import RRuleInput from "react-mui-rrule-input/src";
@@ -17,6 +18,8 @@ import Carousel from "../../components/Carousel";
 import { muiTheme } from "../../utils/MUITheme";
 
 export default function Home() {
+  const [onMobile] = useMediaQuery(["(max-width: 800px)"]);
+
   const [rruleText, setRRuleText] = useState("");
   const [rrule, setRRule] = useState("");
 
@@ -46,6 +49,7 @@ export default function Home() {
           <Text>
             {"I'm a web developer based in Ontario, Canada."}
             <br />
+            {onMobile && <br />}
             {"Currently, I'm focusing on honing my frontend skills as well" +
               " as exploring new and exciting projects."}
           </Text>

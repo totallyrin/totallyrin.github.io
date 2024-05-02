@@ -44,8 +44,36 @@ export const theme = extendTheme({
       },
       variants: {
         outline: (props: StyleFunctionProps) => ({
+          border: "2px solid",
+          borderColor: props.theme.colors[props.colorScheme][500],
           _hover: {
-            border: "1px solid",
+            bg: props.theme.colors[props.colorScheme][500],
+            color: bg,
+          },
+        }),
+        ghost: (props: StyleFunctionProps) => ({
+          _hover: {
+            bg: props.theme.colors[props.colorScheme][500],
+            color: bg,
+          },
+        }),
+      },
+      defaultProps: {
+        colorScheme: "sunflower",
+        variant: "outline",
+      },
+    },
+    IconButton: {
+      baseStyle: {
+        _hover: {
+          bg: sunflower,
+          color: bg,
+        },
+      },
+      variants: {
+        outline: (props: StyleFunctionProps) => ({
+          border: "2px solid",
+          _hover: {
             borderColor: props.theme.colors[props.colorScheme][500],
             bg: props.theme.colors[props.colorScheme][500],
             color: bg,
