@@ -49,7 +49,7 @@ export default function Navbar() {
       <Spacer />
       <Heading></Heading>
       <Spacer />
-      {onMobile ? (
+      {!onMobile ? (
         <HStack>
           <Button variant="ghost">
             <HStack>
