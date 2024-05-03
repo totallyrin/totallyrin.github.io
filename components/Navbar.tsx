@@ -28,7 +28,8 @@ export default function Navbar({
 }) {
   const [onMobile] = useMediaQuery(["(max-width: 800px)"], {
     ssr: true,
-    fallback: false, // return false on the server, and re-evaluate on the client side
+    fallback: true, // return true on the server, and re-evaluate on the
+    // client side
   });
 
   const buttonStyle = useStyleConfig("Button", { variant: "ghost" });

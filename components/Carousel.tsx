@@ -6,19 +6,17 @@ import {
   CardFooter,
   CardHeader,
   Flex,
-  Heading,
   Spacer,
 } from "@chakra-ui/react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
-import { bg } from "../utils/utils";
 
 export default function Carousel({
   elements,
-  titles,
+  headers,
   footers,
 }: {
   elements: React.JSX.Element[];
-  titles?: string[];
+  headers?: React.JSX.Element[];
   footers?: React.JSX.Element[];
 }) {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -41,13 +39,15 @@ export default function Carousel({
       {elements.map((e, index: number) => (
         <Flex ml="auto" mr="auto" justify="center" key={index}>
           <Card
+            whiteSpace="normal"
+            overflowWrap="break-word"
             borderWidth="3px"
             borderRadius="lg"
-            borderColor="#1F1F1F"
+            borderColor="#FFC66D"
             boxShadow={index === selectedIndex ? "lg" : "md"}
             my={3}
             p={3}
-            // bg={index === selectedIndex ? "#FFEBD6" : "gray.100"}
+            bg={index === selectedIndex ? "#FFEFD6" : "gray.100"}
             transform={index === selectedIndex ? "scale(1)" : "scale(0.75)"}
             transition="transform 0.5s"
             display={
@@ -60,13 +60,13 @@ export default function Carousel({
                   : "none"
             }
           >
-            {titles && (
-              <CardHeader>
-                <Heading color={bg}>{titles[index]}</Heading>
-              </CardHeader>
+            {headers && headers[index] && (
+              <CardHeader>{headers[index]}</CardHeader>
             )}
             <CardBody>{e}</CardBody>
-            {footers && <CardFooter>{footers[index]}</CardFooter>}
+            {footers && footers[index] && (
+              <CardFooter>{footers[index]}</CardFooter>
+            )}
           </Card>
         </Flex>
       ))}
