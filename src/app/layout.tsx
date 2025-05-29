@@ -1,9 +1,17 @@
-import type {Metadata} from "next";
-import {Source_Code_Pro} from "next/font/google";
-import Providers from "@/app/providers";
+import type { Metadata } from "next";
 
-// const inter = Inter({subsets: ["latin"]});
-const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
+import "@mantine/core/styles.css";
+import {
+  AppShell,
+  AppShellFooter,
+  AppShellHeader,
+  AppShellMain,
+  mantineHtmlProps,
+  MantineProvider,
+  ScrollArea,
+} from "@mantine/core";
+import { theme } from "@/utils/theme";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "totallyrin.github.io",
@@ -16,12 +24,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={sourceCodePro.className}
-        style={{ backgroundColor: "#292929" }}
-      >
-        <Providers>{children}</Providers>
+    <html lang="en" {...mantineHtmlProps}>
+      <body>
+        <MantineProvider theme={theme} defaultColorScheme="dark">
+          <AppShell>
+            <AppShellHeader>
+              <Header />
+            </AppShellHeader>
+            <AppShellMain>
+              <ScrollArea>{children}</ScrollArea>
+            </AppShellMain>
+            <AppShellFooter></AppShellFooter>
+          </AppShell>
+        </MantineProvider>
       </body>
     </html>
   );
