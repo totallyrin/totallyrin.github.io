@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   FaCanadianMapleLeaf,
+  FaChevronRight,
   FaCode,
   FaForwardFast,
   FaLaptopCode,
@@ -245,6 +246,7 @@ export default function Home() {
                       ...styles,
                     }}
                     onClick={() => router.push("/projects")}
+                    rightSection={<FaChevronRight />}
                   >
                     Check out my projects!
                   </Button>
@@ -266,7 +268,7 @@ export default function Home() {
                     setLine(100);
                     setSkip(true);
                   }}
-                  leftSection={<FaForwardFast />}
+                  rightSection={<FaForwardFast />}
                 >
                   Skip
                 </Button>
