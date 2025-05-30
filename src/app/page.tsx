@@ -7,9 +7,10 @@ import {
   Container,
   Group,
   Highlight,
+  List,
+  ListItem,
   Space,
   Stack,
-  Text,
   Title,
   Transition,
 } from "@mantine/core";
@@ -17,6 +18,7 @@ import { pinkie, sunflower } from "@/utils/utils";
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useEventListener } from "@mantine/hooks";
+import { FaCanadianMapleLeaf, FaCode, FaLaptopCode } from "react-icons/fa6";
 
 export default function Page() {
   const router = useRouter();
@@ -34,7 +36,7 @@ export default function Page() {
           animate={line >= 0}
           loop={false}
           c={sunflower}
-          fw={500}
+          fw={700}
           order={1}
           component={Title}
           ta="center"
@@ -63,7 +65,7 @@ export default function Page() {
               animate={line >= 2}
               loop={false}
               c={pinkie}
-              fw={500}
+              fw={700}
               order={2}
               component={Title}
               onTypeEnd={() => setLine(line + 1)}
@@ -100,76 +102,105 @@ export default function Page() {
         />
       </Center>
       <Space h="xs" />
-      <Transition
-        mounted={line >= 5}
-        transition="fade-down"
-        duration={line == 100 ? 0 : 500}
-        timingFunction="ease"
-        onEntered={() => setTimeout(() => setLine(line + 1), pause)}
-      >
-        {(styles) => (
-          <Highlight
-            highlight={["web developer"]}
-            highlightStyles={{
-              backgroundImage: "linear-gradient(90deg, #FC6471, #FFC66D)",
-              fontWeight: 500,
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-            style={styles}
-          >
-            I&apos;m a web developer based in Ontario. 🇨🇦
-          </Highlight>
-        )}
-      </Transition>
-      <Space h="xs" />
-      <Transition
-        mounted={line >= 6}
-        transition="slide-left"
-        duration={line == 100 ? 0 : 500}
-        timingFunction="ease"
-        onEntered={() => setTimeout(() => setLine(line + 1), pause)}
-      >
-        {(styles) => (
-          <Highlight
-            highlight={["React", "Next.js", "Node.js"]}
-            highlightStyles={{
-              backgroundImage: "linear-gradient(90deg, #FC6471, #FFC66D)",
-              fontWeight: 500,
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-            style={styles}
-          >
-            I specialise in building modern, responsive web applications using
-            technologies like React, Next.js, and Node.js, with experience in
-            both frontend and backend development.
-          </Highlight>
-        )}
-      </Transition>
-      <Space h="xs" />
-      <Transition
-        mounted={line >= 7}
-        transition="slide-left"
-        duration={line == 100 ? 0 : 500}
-        timingFunction="ease"
-        onEntered={() => setTimeout(() => setLine(line + 1), pause)}
-      >
-        {(styles) => (
-          <Text style={styles}>
-            Whether I&apos;m building components, debugging layout quirks, or
-            integrating third-party APIs, I care about clean, maintainable code,
-            responsive design, and creating seamless user experiences across
-            devices.
-          </Text>
-        )}
-      </Transition>
+      <List center spacing="lg">
+        <Transition
+          mounted={line >= 5}
+          transition="fade-down"
+          duration={line == 100 ? 0 : 500}
+          timingFunction="ease"
+          onEntered={() => setTimeout(() => setLine(line + 1), pause)}
+          keepMounted
+        >
+          {(styles) => (
+            <ListItem
+              style={styles}
+              icon={<FaCanadianMapleLeaf color={pinkie} size="1.5em" />}
+            >
+              <Highlight
+                highlight={["web developer"]}
+                highlightStyles={{
+                  backgroundImage: "linear-gradient(90deg, #FC6471, #FFC66D)",
+                  fontWeight: 700,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                I&apos;m a web developer based in Ontario. 🇨🇦
+              </Highlight>
+            </ListItem>
+          )}
+        </Transition>
+        <Transition
+          mounted={line >= 6}
+          transition="slide-left"
+          duration={line == 100 ? 0 : 500}
+          timingFunction="ease"
+          onEntered={() => setTimeout(() => setLine(line + 1), pause)}
+          keepMounted
+        >
+          {(styles) => (
+            <ListItem
+              style={styles}
+              icon={<FaLaptopCode color={pinkie} size="1.5em" />}
+            >
+              <Highlight
+                highlight={["React", "Next.js", "Node.js"]}
+                highlightStyles={{
+                  backgroundImage: "linear-gradient(90deg, #FC6471, #FFC66D)",
+                  fontWeight: 700,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                I specialise in building modern, responsive web applications
+                using technologies like React, Next.js, and Node.js, with
+                experience in both frontend and backend development.
+              </Highlight>
+            </ListItem>
+          )}
+        </Transition>
+        <Transition
+          mounted={line >= 7}
+          transition="slide-left"
+          duration={line == 100 ? 0 : 500}
+          timingFunction="ease"
+          onEntered={() => setTimeout(() => setLine(line + 1), pause)}
+          keepMounted
+        >
+          {(styles) => (
+            <ListItem
+              style={styles}
+              icon={<FaCode color={pinkie} size="1.5em" />}
+            >
+              <Highlight
+                highlight={[
+                  "clean, maintainable code",
+                  "responsive design",
+                  "seamless user" + " experiences",
+                ]}
+                highlightStyles={{
+                  backgroundImage: "linear-gradient(90deg, #FC6471, #FFC66D)",
+                  fontWeight: 700,
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}
+              >
+                Whether I&apos;m building components, debugging layout quirks,
+                or integrating third-party APIs, I care about clean,
+                maintainable code, responsive design, and creating seamless user
+                experiences across devices.
+              </Highlight>
+            </ListItem>
+          )}
+        </Transition>
+      </List>
       <Space h="xs" />
       <Transition
         mounted={line >= 8}
         transition="pop"
         duration={line == 100 ? 0 : 500}
         timingFunction="ease"
+        keepMounted
       >
         {(styles) => (
           <Container>

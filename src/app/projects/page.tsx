@@ -1,5 +1,5 @@
 import { Text } from "@mantine/core";
 
 export default function Projects() {
-  return <Text>hello</Text>;
+  return <Text>projects</Text>;
 }

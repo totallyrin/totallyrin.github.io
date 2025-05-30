@@ -8,7 +8,7 @@ import {
   AppShellMain,
   mantineHtmlProps,
   MantineProvider,
-  ScrollArea,
+  Stack,
 } from "@mantine/core";
 import { theme } from "@/utils/theme";
 import Header from "@/components/Header";
@@ -28,12 +28,30 @@ export default function RootLayout({
     <html lang="en" {...mantineHtmlProps}>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="dark">
-          <AppShell header={{ height: 115 }}>
+          <AppShell header={{ height: 115 }} footer={{ height: 115 }}>
             <AppShellHeader>
               <Header />
             </AppShellHeader>
-            <AppShellMain>
-              <ScrollArea p="xl">{children}</ScrollArea>
+            <AppShellMain
+              style={{
+                maxWidth: "100vw",
+                overflowX: "hidden",
+              }}
+            >
+              <Stack
+                my="xl"
+                px={{
+                  base: "1em",
+                  xs: 0,
+                  sm: "2em",
+                  md: "5em",
+                  lg: "10em",
+                  xl: "25em",
+                  xxl: "40em",
+                }}
+              >
+                {children}
+              </Stack>
             </AppShellMain>
             <AppShellFooter></AppShellFooter>
           </AppShell>
