@@ -6,6 +6,7 @@ import {
   Center,
   Container,
   Group,
+  Highlight,
   Space,
   Stack,
   Text,
@@ -107,9 +108,18 @@ export default function Page() {
         onEntered={() => setTimeout(() => setLine(line + 1), pause)}
       >
         {(styles) => (
-          <Text style={styles}>
-            I&apos;m a web developer based in Ontario, Canada.
-          </Text>
+          <Highlight
+            highlight={["web developer"]}
+            highlightStyles={{
+              backgroundImage: "linear-gradient(90deg, #FC6471, #FFC66D)",
+              fontWeight: 500,
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+            style={styles}
+          >
+            I&apos;m a web developer based in Ontario. 🇨🇦
+          </Highlight>
         )}
       </Transition>
       <Space h="xs" />
@@ -118,14 +128,23 @@ export default function Page() {
         transition="slide-left"
         duration={line == 100 ? 0 : 500}
         timingFunction="ease"
-        onEntered={() => setTimeout(() => setLine(line + 1), 2 * pause)}
+        onEntered={() => setTimeout(() => setLine(line + 1), pause)}
       >
         {(styles) => (
-          <Text style={styles}>
+          <Highlight
+            highlight={["React", "Next.js", "Node.js"]}
+            highlightStyles={{
+              backgroundImage: "linear-gradient(90deg, #FC6471, #FFC66D)",
+              fontWeight: 500,
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+            style={styles}
+          >
             I specialise in building modern, responsive web applications using
             technologies like React, Next.js, and Node.js, with experience in
             both frontend and backend development.
-          </Text>
+          </Highlight>
         )}
       </Transition>
       <Space h="xs" />
@@ -134,7 +153,7 @@ export default function Page() {
         transition="slide-left"
         duration={line == 100 ? 0 : 500}
         timingFunction="ease"
-        onEntered={() => setTimeout(() => setLine(line + 1), 2 * pause)}
+        onEntered={() => setTimeout(() => setLine(line + 1), pause)}
       >
         {(styles) => (
           <Text style={styles}>
