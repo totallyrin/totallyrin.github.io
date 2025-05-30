@@ -11,13 +11,14 @@ import {
 import { FaGithub } from "react-icons/fa6";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
+import { pinkie, sunflower } from "@/utils/utils";
+import Link from "next/link";
 
 export default function Header() {
   const router = useRouter();
   const tab = usePathname();
 
   const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
-  const [value, setValue] = useState<string | null>("1");
   const [controlsRefs, setControlsRefs] = useState<
     Record<string, HTMLButtonElement | null>
   >({});
@@ -29,28 +30,36 @@ export default function Header() {
   return (
     <Group m="xl" justify="space-between">
       <Button
-        color="#FC5D5D"
+        color={pinkie}
         leftSection={<FaGithub size="1.5em" />}
         size="lg"
         variant="subtle"
         style={{
           transitionDuration: "250ms",
         }}
+        component={Link}
+        href="https://github.com/totallyrin"
       >
         totallyrin
       </Button>
       <Group>
         <Tabs
+          variant="pills"
           value={
             (tab.substring(1) as string) === ""
               ? "home"
               : (tab.substring(1) as string)
           }
-          onChange={(value) =>
+          onChange={(value: string | null) =>
             value === "home" ? router.push("/") : router.push(`/${value}`)
           }
-          color="#FC5D5D"
+          // color="#FC5D5D"
+          color="#3f2c2e"
           style={{
+            width: "100%", // Ensures parent covers full horizontal space
+            justifyContent: "flex-end", // Right-align the actual tabs
+            display: "flex", // Ensure the children align as intended
+            position: "relative", // Important for FloatingIndicator to position absolutely inside
             transitionDuration: "250ms",
           }}
         >
@@ -63,11 +72,19 @@ export default function Header() {
               }}
             >
               <Group gap="xs">
-                <Text c="#FC5D5D">
-                  <b>00.</b>
+                <Text
+                  // size="lg"
+                  c={pinkie}
+                  fw={500}
+                >
+                  00.
                 </Text>
-                <Text c="sunflower">
-                  <b>Home</b>
+                <Text
+                  // size="lg"
+                  c={sunflower}
+                  fw={500}
+                >
+                  Home
                 </Text>
               </Group>
             </TabsTab>
@@ -78,7 +95,22 @@ export default function Header() {
                 transitionDuration: "250ms",
               }}
             >
-              01. Projects
+              <Group gap="xs">
+                <Text
+                  // size="lg"
+                  c={pinkie}
+                  fw={500}
+                >
+                  01.
+                </Text>
+                <Text
+                  // size="lg"
+                  c="sunflower"
+                  fw={500}
+                >
+                  Projects
+                </Text>
+              </Group>
             </TabsTab>
             <TabsTab
               value="experience"
@@ -87,7 +119,22 @@ export default function Header() {
                 transitionDuration: "250ms",
               }}
             >
-              02. Experience
+              <Group gap="xs">
+                <Text
+                  // size="lg"
+                  c={pinkie}
+                  fw={500}
+                >
+                  02.
+                </Text>
+                <Text
+                  // size="lg"
+                  c="sunflower"
+                  fw={500}
+                >
+                  Experience
+                </Text>
+              </Group>
             </TabsTab>
             <TabsTab
               value="contact"
@@ -96,12 +143,41 @@ export default function Header() {
                 transitionDuration: "250ms",
               }}
             >
-              03. Contact
+              <Group gap="xs">
+                <Text
+                  // size="lg"
+                  c={pinkie}
+                  fw={500}
+                >
+                  03.
+                </Text>
+                <Text
+                  // size="lg"
+                  c="sunflower"
+                  fw={500}
+                >
+                  Contact
+                </Text>
+              </Group>
             </TabsTab>
 
             <FloatingIndicator
-              target={value ? controlsRefs[value] : null}
+              target={
+                controlsRefs[
+                  (tab.substring(1) as string) === ""
+                    ? "home"
+                    : (tab.substring(1) as string)
+                ]
+              }
               parent={rootRef}
+              style={{
+                maxHeight: "2px",
+                marginTop: 50,
+                backgroundColor: pinkie,
+                borderRadius: "10px",
+                zIndex: 99,
+                transitionDuration: "250ms",
+              }}
             />
           </TabsList>
         </Tabs>

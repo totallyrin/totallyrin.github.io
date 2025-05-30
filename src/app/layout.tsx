@@ -12,6 +12,7 @@ import {
 } from "@mantine/core";
 import { theme } from "@/utils/theme";
 import Header from "@/components/Header";
+import "@gfazioli/mantine-text-animate/styles.css";
 
 export const metadata: Metadata = {
   title: "totallyrin.github.io",
@@ -27,12 +28,12 @@ export default function RootLayout({
     <html lang="en" {...mantineHtmlProps}>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="dark">
-          <AppShell>
+          <AppShell header={{ height: 115 }}>
             <AppShellHeader>
               <Header />
             </AppShellHeader>
             <AppShellMain>
-              <ScrollArea>{children}</ScrollArea>
+              <ScrollArea p="xl">{children}</ScrollArea>
             </AppShellMain>
             <AppShellFooter></AppShellFooter>
           </AppShell>
