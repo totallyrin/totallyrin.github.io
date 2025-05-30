@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "@mantine/core/styles.css";
+import "@gfazioli/mantine-text-animate/styles.css";
 import {
   AppShell,
   AppShellFooter,
@@ -12,23 +13,23 @@ import {
 } from "@mantine/core";
 import { theme } from "@/utils/theme";
 import Header from "@/components/Header";
-import "@gfazioli/mantine-text-animate/styles.css";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "totallyrin.github.io",
+  title: "Home | totallyrin",
   description: "totallyrin's personal website",
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en" {...mantineHtmlProps}>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="dark">
-          <AppShell header={{ height: 115 }} footer={{ height: 115 }}>
+          <AppShell header={{ height: 115 }} footer={{ height: 62 }}>
             <AppShellHeader>
               <Header />
             </AppShellHeader>
