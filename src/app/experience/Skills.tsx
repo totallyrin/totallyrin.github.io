@@ -4,17 +4,18 @@ import { RiJavascriptFill, RiNextjsFill } from "react-icons/ri";
 import { BiLogoTypescript } from "react-icons/bi";
 import { FaGitAlt, FaJava, FaPython, FaReact } from "react-icons/fa6";
 import { SiLua, SiMongodb, SiPostgresql, SiSqlite } from "react-icons/si";
-import React from "react";
+import { ReactNode } from "react";
 
 const CustomBadge = ({
   children,
   leftSection,
 }: {
   children: any;
-  leftSection?: React.ReactNode;
+  leftSection?: ReactNode;
 }) => {
   return (
     <Badge
+      radius="md"
       color={sunflower}
       // variant="gradient"
       // gradient={{ from: pinkie, to: sunflower, deg: 90 }}

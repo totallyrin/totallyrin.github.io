@@ -1,23 +1,29 @@
 "use client";
 import {
-  Button,
+  ActionIcon,
+  Avatar,
   FloatingIndicator,
   Group,
+  Stack,
   Tabs,
   TabsList,
   TabsTab,
   Text,
+  Tooltip,
+  useComputedColorScheme,
+  useMantineColorScheme,
 } from "@mantine/core";
-import { FaGithub } from "react-icons/fa6";
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { pinkie, sunflower } from "@/utils/utils";
-import Link from "next/link";
+import { IoSunny } from "react-icons/io5";
+import { FaMoon } from "react-icons/fa6";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function Header() {
   const router = useRouter();
   const tab = usePathname();
-
+  const mobile = useMediaQuery("(max-width: 689px)", true);
   const [rootRef, setRootRef] = useState<HTMLDivElement | null>(null);
   const [controlsRefs, setControlsRefs] = useState<
     Record<string, HTMLButtonElement | null>
@@ -26,137 +32,204 @@ export default function Header() {
     controlsRefs[val] = node;
     setControlsRefs(controlsRefs);
   };
+  const { setColorScheme } = useMantineColorScheme();
+  const computedColorScheme = useComputedColorScheme("dark", {
+    getInitialValueInEffect: true,
+  });
+  const [scheme, setScheme] = useState("dark");
+
+  useEffect(() => {
+    setScheme(computedColorScheme);
+  }, [computedColorScheme]);
 
   return (
-    <Group m="xl" justify="space-between">
-      <Button
-        color={pinkie}
-        leftSection={<FaGithub size="1.5em" />}
-        size="lg"
-        variant="subtle"
-        style={{
-          transitionDuration: "250ms",
-        }}
-        component={Link}
-        href="https://github.com/totallyrin"
-      >
-        Lucy W.
-      </Button>
-      <Group>
-        <Tabs
-          variant="pills"
-          value={
-            (tab.substring(1) as string) === ""
-              ? "home"
-              : (tab.substring(1) as string)
-          }
-          onChange={(value: string | null) =>
-            value === "home" ? router.push("/") : router.push(`/${value}`)
-          }
-          // color="#FC5D5D"
-          color="#3f2c2e"
-          style={{
-            width: "100%", // Ensures parent covers full horizontal space
-            justifyContent: "flex-end", // Right-align the actual tabs
-            display: "flex", // Ensure the children align as intended
-            position: "relative", // Important for FloatingIndicator to position absolutely inside
-            transitionDuration: "250ms",
-          }}
-        >
-          <TabsList ref={setRootRef}>
-            <TabsTab
-              value="home"
-              ref={setControlRef("home")}
+    <Group m="xl" justify="space-between" align="center">
+      <Stack align="flex-start" justify="space-between" h="100%">
+        <Group>
+          <Avatar
+            size={mobile ? "xl" : "lg"}
+            p="2px"
+            src="photo-circle.png"
+            style={{
+              backgroundImage: `linear-gradient(90deg, ${pinkie}, ${sunflower})`,
+            }}
+          />
+          <Text
+            size="xl"
+            fw={700}
+            variant="gradient"
+            gradient={{
+              from: pinkie,
+              to: sunflower,
+              deg: 90,
+            }}
+          >
+            Lucy W.
+          </Text>
+        </Group>
+        {mobile && (
+          <Tooltip
+            color={sunflower}
+            c="#242424"
+            label={scheme === "light" ? "Dark Mode" : "Light Mode"}
+          >
+            <ActionIcon
+              mt={2}
+              ml="lg"
+              size="xl"
+              variant="subtle"
+              color={sunflower}
               style={{
                 transitionDuration: "250ms",
               }}
-            >
-              <Group gap="xs">
-                <Text
-                  // size="lg"
-                  c={pinkie}
-                  fw={500}
-                >
-                  00.
-                </Text>
-                <Text
-                  // size="lg"
-                  c={sunflower}
-                  fw={500}
-                >
-                  Home
-                </Text>
-              </Group>
-            </TabsTab>
-            <TabsTab
-              value="projects"
-              ref={setControlRef("projects")}
-              style={{
-                transitionDuration: "250ms",
-              }}
-            >
-              <Group gap="xs">
-                <Text
-                  // size="lg"
-                  c={pinkie}
-                  fw={500}
-                >
-                  01.
-                </Text>
-                <Text
-                  // size="lg"
-                  c="sunflower"
-                  fw={500}
-                >
-                  Projects
-                </Text>
-              </Group>
-            </TabsTab>
-            <TabsTab
-              value="experience"
-              ref={setControlRef("experience")}
-              style={{
-                transitionDuration: "250ms",
-              }}
-            >
-              <Group gap="xs">
-                <Text
-                  // size="lg"
-                  c={pinkie}
-                  fw={500}
-                >
-                  02.
-                </Text>
-                <Text
-                  // size="lg"
-                  c="sunflower"
-                  fw={500}
-                >
-                  Experience
-                </Text>
-              </Group>
-            </TabsTab>
-
-            <FloatingIndicator
-              target={
-                controlsRefs[
-                  (tab.substring(1) as string) === ""
-                    ? "home"
-                    : (tab.substring(1) as string)
-                ]
+              onClick={() =>
+                setColorScheme(
+                  computedColorScheme === "light" ? "dark" : "light",
+                )
               }
-              parent={rootRef}
-              style={{
-                maxHeight: "2px",
-                marginTop: 50,
-                backgroundColor: pinkie,
-                borderRadius: "10px",
-                zIndex: 99,
-                transitionDuration: "250ms",
-              }}
-            />
-          </TabsList>
-        </Tabs>
+            >
+              {scheme === "light" ? (
+                <FaMoon size="1.5em" />
+              ) : (
+                <IoSunny size="1.5em" />
+              )}
+            </ActionIcon>
+          </Tooltip>
+        )}
+      </Stack>
+      <Group>
+        <Group>
+          <Tabs
+            variant="pills"
+            orientation={mobile ? "vertical" : "horizontal"}
+            value={
+              (tab.substring(1) as string) === ""
+                ? "home"
+                : (tab.substring(1) as string)
+            }
+            onChange={(value: string | null) =>
+              value === "home" ? router.push("/") : router.push(`/${value}`)
+            }
+            color={scheme === "dark" ? "#3f2c2e" : sunflower}
+            style={{
+              width: "100%", // Ensures parent covers full horizontal space
+              justifyContent: "flex-end", // Right-align the actual tabs
+              display: "flex", // Ensure the children align as intended
+              position: "relative", // Important for FloatingIndicator to position absolutely inside
+              transitionDuration: "250ms",
+            }}
+          >
+            <TabsList ref={setRootRef}>
+              <TabsTab
+                value="home"
+                ref={setControlRef("home")}
+                style={{
+                  transitionDuration: "250ms",
+                }}
+              >
+                <Group gap="xs">
+                  <Text c={pinkie} fw={500}>
+                    00.
+                  </Text>
+                  <Text c={scheme === "dark" ? sunflower : undefined} fw={500}>
+                    Home
+                  </Text>
+                </Group>
+              </TabsTab>
+              <TabsTab
+                value="projects"
+                ref={setControlRef("projects")}
+                style={{
+                  transitionDuration: "250ms",
+                }}
+              >
+                <Group gap="xs">
+                  <Text c={pinkie} fw={500}>
+                    01.
+                  </Text>
+                  <Text c={scheme === "dark" ? sunflower : undefined} fw={500}>
+                    Projects
+                  </Text>
+                </Group>
+              </TabsTab>
+              <TabsTab
+                value="experience"
+                ref={setControlRef("experience")}
+                style={{
+                  transitionDuration: "250ms",
+                }}
+              >
+                <Group gap="xs">
+                  <Text c={pinkie} fw={500}>
+                    02.
+                  </Text>
+                  <Text c={scheme === "dark" ? sunflower : undefined} fw={500}>
+                    Resume
+                  </Text>
+                </Group>
+              </TabsTab>
+
+              <FloatingIndicator
+                target={
+                  controlsRefs[
+                    (tab.substring(1) as string) === ""
+                      ? "home"
+                      : (tab.substring(1) as string)
+                  ]
+                }
+                parent={rootRef}
+                style={
+                  mobile
+                    ? {
+                        position: "absolute",
+                        maxWidth: "2px",
+                        marginLeft: 155,
+                        backgroundColor: pinkie,
+                        borderRadius: "10px",
+                        zIndex: 1,
+                        transitionDuration: "250ms",
+                      }
+                    : {
+                        maxHeight: "2px",
+                        marginTop: 50,
+                        backgroundColor: pinkie,
+                        borderRadius: "10px",
+                        zIndex: 1,
+                        transitionDuration: "250ms",
+                      }
+                }
+              />
+            </TabsList>
+            {!mobile && (
+              <Tooltip
+                color={sunflower}
+                c="#242424"
+                label={scheme === "light" ? "Dark Mode" : "Light Mode"}
+              >
+                <ActionIcon
+                  ml="xs"
+                  size="xl"
+                  variant="subtle"
+                  color={sunflower}
+                  style={{
+                    transitionDuration: "250ms",
+                  }}
+                  onClick={() =>
+                    setColorScheme(
+                      computedColorScheme === "light" ? "dark" : "light",
+                    )
+                  }
+                >
+                  {scheme === "light" ? (
+                    <FaMoon size="1.5em" />
+                  ) : (
+                    <IoSunny size="1.5em" />
+                  )}
+                </ActionIcon>
+              </Tooltip>
+            )}
+          </Tabs>
+        </Group>
       </Group>
     </Group>
   );

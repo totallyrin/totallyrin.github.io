@@ -9,11 +9,14 @@ import {
   Group,
   List,
   ListItem,
+  SimpleGrid,
   Stack,
   Title,
+  Tooltip,
   Transition,
+  useComputedColorScheme,
 } from "@mantine/core";
-import { pinkie } from "@/utils/utils";
+import { pinkie, sunflower } from "@/utils/utils";
 import { BiLogoTypescript } from "react-icons/bi";
 import { RiNextjsFill } from "react-icons/ri";
 import Link from "next/link";
@@ -32,29 +35,49 @@ const ProjectCard = ({
   image: string;
   link: string;
   icons: ReactNode[];
-}) => (
-  <Card withBorder p="md" bg="none">
-    <CardSection withBorder mb="xs">
-      <BackgroundImage src={image} h={300} p="xl"></BackgroundImage>
-    </CardSection>
-    <Stack>
-      <Group justify="space-between">
-        <Anchor href={link} c={pinkie}>
-          <Title order={3}>{title}</Title>
-        </Anchor>
-        <Group gap="xs">{icons.map((icon) => icon)}</Group>
-      </Group>
-      <List>
-        {description.map((item) => (
-          <ListItem key={item}>{item}</ListItem>
-        ))}
-      </List>
-      <Button color="sunflower" variant="light" component={Link} href={link}>
-        {link}
-      </Button>
-    </Stack>
-  </Card>
-);
+}) => {
+  const computedColorScheme = useComputedColorScheme("dark", {
+    getInitialValueInEffect: true,
+  });
+  const [scheme, setScheme] = useState("dark");
+  useEffect(() => {
+    setScheme(computedColorScheme);
+  }, [computedColorScheme]);
+
+  return (
+    <Card withBorder p="md" bg="none">
+      <CardSection withBorder mb="xs">
+        <BackgroundImage src={image} h={300} p="xl"></BackgroundImage>
+      </CardSection>
+      <Stack justify="space-between" h="100%">
+        <Stack>
+          <Group justify="space-between">
+            <Anchor href={link} c={pinkie}>
+              <Title order={3}>{title}</Title>
+            </Anchor>
+            <Group gap="xs">{icons.map((icon) => icon)}</Group>
+          </Group>
+          <List pr="sm">
+            {description.map((item) => (
+              <ListItem key={item}>{item}</ListItem>
+            ))}
+          </List>
+        </Stack>
+        <Button
+          color={sunflower}
+          variant={scheme === "dark" ? "light" : "filled"}
+          component={Link}
+          href={link}
+          style={{
+            transitionDuration: "250ms",
+          }}
+        >
+          {link}
+        </Button>
+      </Stack>
+    </Card>
+  );
+};
 
 export default function Projects() {
   const [opened, setOpened] = useState(false);
@@ -71,7 +94,7 @@ export default function Projects() {
       timingFunction="ease"
     >
       {(styles) => (
-        <Stack gap="xl" style={styles}>
+        <SimpleGrid cols={{ base: 1, md: 2 }} style={styles}>
           <ProjectCard
             title="Rainbow Railroad RP"
             description={[
@@ -85,9 +108,33 @@ export default function Projects() {
             image="rrrp.png"
             link="https://rainbowrailroadrp.com/"
             icons={[
-              <BiLogoTypescript key="0" color={pinkie} size="1.5em" />,
-              <RiNextjsFill key="1" color={pinkie} size="1.5em" />,
-              <SiPostgresql key="2" color={pinkie} size="1.5em" />,
+              <Tooltip
+                key="0"
+                label="Typescript"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <BiLogoTypescript color={pinkie} size="1.5em" />
+              </Tooltip>,
+              <Tooltip
+                key="1"
+                label="Next.js"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <RiNextjsFill color={pinkie} size="1.5em" />
+              </Tooltip>,
+              <Tooltip
+                key="2"
+                label="PostgreSQL"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <SiPostgresql color={pinkie} size="1.5em" />
+              </Tooltip>,
             ]}
           />
           <ProjectCard
@@ -101,10 +148,42 @@ export default function Projects() {
             image="rrrptradingcards.png"
             link="https://rrrptradingcards.vercel.app/"
             icons={[
-              <BiLogoTypescript key="0" color={pinkie} size="1.5em" />,
-              <RiNextjsFill key="1" color={pinkie} size="1.5em" />,
-              <SiPostgresql key="2" color={pinkie} size="1.5em" />,
-              <SiGooglecloud key="3" color={pinkie} size="1.5em" />,
+              <Tooltip
+                key="0"
+                label="Typescript"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <BiLogoTypescript color={pinkie} size="1.5em" />
+              </Tooltip>,
+              <Tooltip
+                key="1"
+                label="Next.js"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <RiNextjsFill color={pinkie} size="1.5em" />
+              </Tooltip>,
+              <Tooltip
+                key="2"
+                label="PostgreSQL"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <SiPostgresql color={pinkie} size="1.5em" />
+              </Tooltip>,
+              <Tooltip
+                key="3"
+                label="Google Cloud Storage"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <SiGooglecloud color={pinkie} size="1.5em" />
+              </Tooltip>,
             ]}
           />
           <ProjectCard
@@ -118,13 +197,45 @@ export default function Projects() {
             image="ttsm.png"
             link="https://ttsm.vercel.app/"
             icons={[
-              <BiLogoTypescript key="0" color={pinkie} size="1.5em" />,
-              <RiNextjsFill key="1" color={pinkie} size="1.5em" />,
-              <FaNodeJs key="2" color={pinkie} size="1.5em" />,
-              <SiSqlite key="3" color={pinkie} size="1.5em" />,
+              <Tooltip
+                key="0"
+                label="Typescript"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <BiLogoTypescript color={pinkie} size="1.5em" />
+              </Tooltip>,
+              <Tooltip
+                key="1"
+                label="Next.js"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <RiNextjsFill color={pinkie} size="1.5em" />
+              </Tooltip>,
+              <Tooltip
+                key="2"
+                label="Node.js"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <FaNodeJs key="2" color={pinkie} size="1.5em" />
+              </Tooltip>,
+              <Tooltip
+                key="3"
+                label="SQLite"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <SiSqlite key="3" color={pinkie} size="1.5em" />
+              </Tooltip>,
             ]}
           />
-        </Stack>
+        </SimpleGrid>
       )}
     </Transition>
   );

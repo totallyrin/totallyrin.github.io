@@ -1,5 +1,4 @@
 "use client";
-
 import { TextAnimate } from "@gfazioli/mantine-text-animate";
 import {
   Avatar,
@@ -11,8 +10,10 @@ import {
   ListItem,
   Paper,
   Stack,
+  Text,
   Title,
   Transition,
+  useComputedColorScheme,
 } from "@mantine/core";
 import { pinkie, sunflower } from "@/utils/utils";
 import { useEffect, useState } from "react";
@@ -27,6 +28,9 @@ import {
 } from "react-icons/fa6";
 
 export default function Home() {
+  const computedColorScheme = useComputedColorScheme("dark", {
+    getInitialValueInEffect: true,
+  });
   const router = useRouter();
   const [line, setLine] = useState(0);
   const [skip, setSkip] = useState(false);
@@ -65,13 +69,16 @@ export default function Home() {
                 }}
               >
                 <Button
-                  variant="light"
+                  variant={computedColorScheme === "dark" ? "light" : "filled"}
                   color={pinkie}
                   onClick={() => {
                     setLine(100);
                     setSkip(true);
                   }}
                   rightSection={<FaForwardFast />}
+                  style={{
+                    transitionDuration: "250ms",
+                  }}
                 >
                   Skip
                 </Button>
@@ -81,78 +88,116 @@ export default function Home() {
           <Stack style={styles} justify="space-between" pb="xl">
             <Stack gap="xs" px="lg">
               <Group justify="center" gap="xl" mb="xs">
-                <Avatar size={200} src="photo.jpg" />
-                <Stack gap="xs" w={297.6}>
-                  <TextAnimate.Typewriter
-                    value={"HELLO, WORLD!"}
-                    speed={0.05}
-                    animate={skip || line >= 0}
-                    loop={false}
-                    c={sunflower}
-                    fw={700}
-                    order={1}
-                    component={Title}
-                    ta="center"
-                    onTypeEnd={() =>
-                      setTimeout(() => setLine(line + 1), skip ? 0 : pause)
-                    }
-                    withCursor={!skip && line == 0}
-                  />
-                  <Group gap="lg">
+                <Avatar
+                  size={200}
+                  p="2px"
+                  src="photo-circle.png"
+                  style={{
+                    backgroundImage: `linear-gradient(90deg, ${pinkie}, ${sunflower})`,
+                  }}
+                />
+                <Stack gap="xs" w={297.6} h={124.1}>
+                  {skip ? (
+                    <Title c={sunflower} order={1}>
+                      HELLO, WORLD!
+                    </Title>
+                  ) : (
                     <TextAnimate.Typewriter
-                      value={"I'm"}
+                      value={"HELLO, WORLD!"}
                       speed={0.05}
-                      animate={skip || line >= 1}
+                      animate={skip || line >= 0}
                       loop={false}
-                      // c={sunflower}
-                      fw={500}
-                      order={2}
+                      c={sunflower}
+                      order={1}
                       component={Title}
-                      onTypeEnd={() => setLine(line + 1)}
-                      withCursor={!skip && line == 1}
+                      onTypeEnd={() =>
+                        setTimeout(() => setLine(line + 1), skip ? 0 : pause)
+                      }
+                      withCursor={!skip && line == 0}
                     />
-                    <Group gap={0}>
+                  )}
+                  <Group gap="lg">
+                    {skip ? (
+                      <Title fw={500} order={2}>
+                        I&apos;m
+                      </Title>
+                    ) : (
                       <TextAnimate.Typewriter
-                        value={"Lucy"}
+                        value={"I'm"}
                         speed={0.05}
-                        animate={skip || line >= 2}
-                        loop={false}
-                        c={pinkie}
-                        fw={700}
-                        order={2}
-                        component={Title}
-                        onTypeEnd={() => setLine(line + 1)}
-                        withCursor={!skip && line == 2}
-                      />
-                      <TextAnimate.Typewriter
-                        value={"."}
-                        speed={0.05}
-                        animate={skip || line >= 3}
+                        animate={skip || line >= 1}
                         loop={false}
                         // c={sunflower}
                         fw={500}
                         order={2}
                         component={Title}
-                        onTypeEnd={() =>
-                          setTimeout(() => setLine(line + 1), skip ? 0 : pause)
-                        }
-                        withCursor={!skip && line == 3}
+                        onTypeEnd={() => setLine(line + 1)}
+                        withCursor={!skip && line == 1}
                       />
+                    )}
+                    <Group gap={0}>
+                      {skip ? (
+                        <Title c={pinkie} fw={700} order={2}>
+                          Lucy
+                        </Title>
+                      ) : (
+                        <TextAnimate.Typewriter
+                          value={"Lucy"}
+                          speed={0.05}
+                          animate={skip || line >= 2}
+                          loop={false}
+                          c={pinkie}
+                          fw={700}
+                          order={2}
+                          component={Title}
+                          onTypeEnd={() => setLine(line + 1)}
+                          withCursor={!skip && line == 2}
+                        />
+                      )}
+                      {skip ? (
+                        <Title fw={500} order={2} component={Title}>
+                          .
+                        </Title>
+                      ) : (
+                        <TextAnimate.Typewriter
+                          value={"."}
+                          speed={0.05}
+                          animate={skip || line >= 3}
+                          loop={false}
+                          // c={sunflower}
+                          fw={500}
+                          order={2}
+                          component={Title}
+                          onTypeEnd={() =>
+                            setTimeout(
+                              () => setLine(line + 1),
+                              skip ? 0 : pause,
+                            )
+                          }
+                          withCursor={!skip && line == 3}
+                        />
+                      )}
                     </Group>
                   </Group>
-                  <TextAnimate.Typewriter
-                    value={"And I really love programming."}
-                    c="dimmed"
-                    speed={0.05}
-                    animate={skip || line >= 4}
-                    loop={false}
-                    // c={sunflower}
-                    fw={500}
-                    onTypeEnd={() => {
-                      setTimeout(() => setLine(line + 1), skip ? 0 : pause);
-                    }}
-                    withCursor={line >= 4}
-                  />
+                  {skip ? (
+                    <Text c="dimmed" fw={500}>
+                      And I really love programming.
+                    </Text>
+                  ) : (
+                    <TextAnimate.Typewriter
+                      value={"And I really love programming."}
+                      c="dimmed"
+                      speed={0.05}
+                      animate={skip || line >= 4}
+                      loop={false}
+                      // c={sunflower}
+                      fw={500}
+                      onTypeEnd={() => {
+                        setTimeout(() => setLine(line + 1), skip ? 0 : pause);
+                      }}
+                      withCursor={!skip && line == 4}
+                    />
+                  )}
                 </Stack>
               </Group>
               <List center spacing="lg" mt="xs">
@@ -177,8 +222,7 @@ export default function Home() {
                         <Highlight
                           highlight={["web developer"]}
                           highlightStyles={{
-                            backgroundImage:
-                              "linear-gradient(90deg, #FC6471, #FFC66D)",
+                            backgroundImage: `linear-gradient(90deg, ${pinkie}, ${sunflower})`,
                             fontWeight: 700,
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
@@ -213,8 +257,7 @@ export default function Home() {
                             "backend",
                           ]}
                           highlightStyles={{
-                            backgroundImage:
-                              "linear-gradient(90deg, #FC6471, #FFC66D)",
+                            backgroundImage: `linear-gradient(90deg, ${pinkie}, ${sunflower})`,
                             fontWeight: 700,
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
@@ -248,8 +291,7 @@ export default function Home() {
                             "seamless user" + " experiences",
                           ]}
                           highlightStyles={{
-                            backgroundImage:
-                              "linear-gradient(90deg, #FC6471, #FFC66D)",
+                            backgroundImage: `linear-gradient(90deg, ${pinkie}, ${sunflower})`,
                             fontWeight: 700,
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
@@ -277,21 +319,22 @@ export default function Home() {
                     <Paper withBorder py="xs" px="md" mb="xs" style={styles}>
                       <ListItem icon={<FaUser color={pinkie} size="1.5em" />}>
                         <Highlight
-                          highlight={[
-                            "gaming",
-                            "my cat, Peanut",
-                            "exploring the outdoors",
-                          ]}
+                          highlight={
+                            [
+                              // "gaming",
+                              // "my cat",
+                              // "exploring the outdoors",
+                            ]
+                          }
                           highlightStyles={{
-                            backgroundImage:
-                              "linear-gradient(90deg, #FC6471, #FFC66D)",
+                            backgroundImage: `linear-gradient(90deg, ${pinkie}, ${sunflower})`,
                             fontWeight: 700,
                             WebkitBackgroundClip: "text",
                             WebkitTextFillColor: "transparent",
                           }}
                         >
                           In my spare time, I enjoy gaming, hanging out with my
-                          cat, Peanut, and exploring the outdoors.
+                          cat, and exploring the outdoors.
                         </Highlight>
                       </ListItem>
                     </Paper>
@@ -308,10 +351,13 @@ export default function Home() {
                 {(styles) => (
                   <Container>
                     <Button
-                      variant="light"
+                      variant={
+                        computedColorScheme === "dark" ? "light" : "filled"
+                      }
                       color={sunflower}
                       style={{
                         ...styles,
+                        transitionDuration: "250ms",
                       }}
                       onClick={() => router.push("/projects")}
                       rightSection={<FaAngleRight />}

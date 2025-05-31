@@ -20,10 +20,10 @@ export default function Experience() {
       timingFunction="ease"
     >
       {(styles) => (
-        <Stack gap="xl" style={styles}>
-          <Education />
-          <Work />
+        <Stack style={styles}>
           <Skills />
+          <Work />
+          <Education />
         </Stack>
       )}
     </Transition>

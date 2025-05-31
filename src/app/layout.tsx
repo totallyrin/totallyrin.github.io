@@ -7,6 +7,7 @@ import {
   AppShellFooter,
   AppShellHeader,
   AppShellMain,
+  ColorSchemeScript,
   mantineHtmlProps,
   MantineProvider,
   Stack,
@@ -30,9 +31,10 @@ export default function RootLayout({
   return (
     <html lang="en" {...mantineHtmlProps}>
       <body>
+        <ColorSchemeScript defaultColorScheme="dark" />
         <MantineProvider theme={theme} defaultColorScheme="dark">
           <AppShell
-            header={{ height: 115 }}
+            header={{ height: { base: 211.067, "690px": 120.667 } }}
             footer={{ height: 105 }}
             padding="xl"
           >
@@ -47,7 +49,6 @@ export default function RootLayout({
             >
               <Stack
                 px={{
-                  base: "1em",
                   xs: 0,
                   sm: "2em",
                   md: "5em",
