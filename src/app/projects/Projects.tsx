@@ -1,11 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Stack, Transition } from "@mantine/core";
-import Education from "@/app/experience/Education";
-import Work from "@/app/experience/Work";
-import Skills from "@/app/experience/Skills";
 
-export default function Experience() {
+export default function Projects() {
   const [opened, setOpened] = useState(false);
 
   useEffect(() => {
@@ -21,9 +18,7 @@ export default function Experience() {
     >
       {(styles) => (
         <Stack gap="xl" style={styles}>
-          <Education />
-          <Work />
-          <Skills />
+          projects
         </Stack>
       )}
     </Transition>

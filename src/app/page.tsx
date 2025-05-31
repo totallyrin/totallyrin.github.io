@@ -9,7 +9,7 @@ import {
   Highlight,
   List,
   ListItem,
-  Space,
+  Paper,
   Stack,
   Title,
   Transition,
@@ -123,8 +123,7 @@ export default function Home() {
                 withCursor={line >= 4}
               />
             </Center>
-            <Space h="xs" />
-            <List center spacing="lg">
+            <List center spacing="lg" mt="xs">
               <Transition
                 mounted={skip || line >= 5}
                 transition="fade-down"
@@ -135,23 +134,26 @@ export default function Home() {
                 }
               >
                 {(styles) => (
-                  <ListItem
-                    style={styles}
-                    icon={<FaCanadianMapleLeaf color={pinkie} size="1.5em" />}
-                  >
-                    <Highlight
-                      highlight={["web developer"]}
-                      highlightStyles={{
-                        backgroundImage:
-                          "linear-gradient(90deg, #FC6471, #FFC66D)",
-                        fontWeight: 700,
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                      }}
+                  <Paper withBorder py="xs" px="md" mb="xs" style={styles}>
+                    <ListItem
+                      icon={<FaCanadianMapleLeaf color={pinkie} size="1.5em" />}
+                      flex={1}
+                      w="100%"
                     >
-                      I&apos;m a web developer based in Ontario. 🇨🇦
-                    </Highlight>
-                  </ListItem>
+                      <Highlight
+                        highlight={["web developer"]}
+                        highlightStyles={{
+                          backgroundImage:
+                            "linear-gradient(90deg, #FC6471, #FFC66D)",
+                          fontWeight: 700,
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                        }}
+                      >
+                        I&apos;m a web developer based in Ontario. 🇨🇦
+                      </Highlight>
+                    </ListItem>
+                  </Paper>
                 )}
               </Transition>
               <Transition
@@ -164,32 +166,33 @@ export default function Home() {
                 }
               >
                 {(styles) => (
-                  <ListItem
-                    style={styles}
-                    icon={<FaLaptopCode color={pinkie} size="1.5em" />}
-                  >
-                    <Highlight
-                      highlight={[
-                        "React",
-                        "Next.js",
-                        "Node.js",
-                        "frontend",
-                        "backend",
-                      ]}
-                      highlightStyles={{
-                        backgroundImage:
-                          "linear-gradient(90deg, #FC6471, #FFC66D)",
-                        fontWeight: 700,
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                      }}
+                  <Paper withBorder py="xs" px="md" mb="xs" style={styles}>
+                    <ListItem
+                      icon={<FaLaptopCode color={pinkie} size="1.5em" />}
                     >
-                      I specialise in building modern, responsive web
-                      applications using technologies like React, Next.js, and
-                      Node.js, with experience in both frontend and backend
-                      development.
-                    </Highlight>
-                  </ListItem>
+                      <Highlight
+                        highlight={[
+                          "React",
+                          "Next.js",
+                          "Node.js",
+                          "frontend",
+                          "backend",
+                        ]}
+                        highlightStyles={{
+                          backgroundImage:
+                            "linear-gradient(90deg, #FC6471, #FFC66D)",
+                          fontWeight: 700,
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                        }}
+                      >
+                        I specialise in building modern, responsive web
+                        applications using technologies like React, Next.js, and
+                        Node.js, with experience in both frontend and backend
+                        development.
+                      </Highlight>
+                    </ListItem>
+                  </Paper>
                 )}
               </Transition>
               <Transition
@@ -202,34 +205,32 @@ export default function Home() {
                 }
               >
                 {(styles) => (
-                  <ListItem
-                    style={styles}
-                    icon={<FaCode color={pinkie} size="1.5em" />}
-                  >
-                    <Highlight
-                      highlight={[
-                        "clean, maintainable code",
-                        "responsive design",
-                        "seamless user" + " experiences",
-                      ]}
-                      highlightStyles={{
-                        backgroundImage:
-                          "linear-gradient(90deg, #FC6471, #FFC66D)",
-                        fontWeight: 700,
-                        WebkitBackgroundClip: "text",
-                        WebkitTextFillColor: "transparent",
-                      }}
-                    >
-                      Whether I&apos;m building components, debugging layout
-                      quirks, or integrating third-party APIs, I care about
-                      clean, maintainable code, responsive design, and creating
-                      seamless user experiences across devices.
-                    </Highlight>
-                  </ListItem>
+                  <Paper withBorder py="xs" px="md" mb="xs" style={styles}>
+                    <ListItem icon={<FaCode color={pinkie} size="1.5em" />}>
+                      <Highlight
+                        highlight={[
+                          "clean, maintainable code",
+                          "responsive design",
+                          "seamless user" + " experiences",
+                        ]}
+                        highlightStyles={{
+                          backgroundImage:
+                            "linear-gradient(90deg, #FC6471, #FFC66D)",
+                          fontWeight: 700,
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                        }}
+                      >
+                        Whether I&apos;m building components, debugging layout
+                        quirks, or integrating third-party APIs, I care about
+                        clean, maintainable code, responsive design, and
+                        creating seamless user experiences across devices.
+                      </Highlight>
+                    </ListItem>
+                  </Paper>
                 )}
               </Transition>
             </List>
-            <Space h="xs" />
             <Transition
               mounted={skip || line >= 8}
               transition="pop"

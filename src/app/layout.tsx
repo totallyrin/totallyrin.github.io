@@ -30,7 +30,11 @@ export default function RootLayout({
     <html lang="en" {...mantineHtmlProps}>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="dark">
-          <AppShell header={{ height: 115 }} footer={{ height: 105 }}>
+          <AppShell
+            header={{ height: 115 }}
+            footer={{ height: 105 }}
+            padding="xl"
+          >
             <AppShellHeader>
               <Header />
             </AppShellHeader>
@@ -41,7 +45,6 @@ export default function RootLayout({
               }}
             >
               <Stack
-                my="xl"
                 px={{
                   base: "1em",
                   xs: 0,
