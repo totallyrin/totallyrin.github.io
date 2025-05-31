@@ -17,8 +17,9 @@ import { ReactNode } from "react";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Home | totallyrin",
-  description: "totallyrin's personal website",
+  title: "Home | Lucy W.",
+  description:
+    "Hi, I'm Lucy, a web developer based in Ontario. I specialise in building modern, responsive web applications using technologies like React, Next.js, and Node.js, with experience in both frontend and backend development.",
 };
 
 export default function RootLayout({

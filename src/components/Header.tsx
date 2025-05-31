@@ -40,7 +40,7 @@ export default function Header() {
         component={Link}
         href="https://github.com/totallyrin"
       >
-        totallyrin
+        Lucy W.
       </Button>
       <Group>
         <Tabs
@@ -133,30 +133,6 @@ export default function Header() {
                   fw={500}
                 >
                   Experience
-                </Text>
-              </Group>
-            </TabsTab>
-            <TabsTab
-              value="contact"
-              ref={setControlRef("contact")}
-              style={{
-                transitionDuration: "250ms",
-              }}
-            >
-              <Group gap="xs">
-                <Text
-                  // size="lg"
-                  c={pinkie}
-                  fw={500}
-                >
-                  03.
-                </Text>
-                <Text
-                  // size="lg"
-                  c="sunflower"
-                  fw={500}
-                >
-                  Contact
                 </Text>
               </Group>
             </TabsTab>
