@@ -14,6 +14,7 @@ import {
 import { theme } from "@/utils/theme";
 import Header from "@/components/Header";
 import { ReactNode } from "react";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Home | totallyrin",
@@ -29,7 +30,7 @@ export default function RootLayout({
     <html lang="en" {...mantineHtmlProps}>
       <body>
         <MantineProvider theme={theme} defaultColorScheme="dark">
-          <AppShell header={{ height: 115 }} footer={{ height: 62 }}>
+          <AppShell header={{ height: 115 }} footer={{ height: 105 }}>
             <AppShellHeader>
               <Header />
             </AppShellHeader>
@@ -54,7 +55,9 @@ export default function RootLayout({
                 {children}
               </Stack>
             </AppShellMain>
-            <AppShellFooter></AppShellFooter>
+            <AppShellFooter>
+              <Footer />
+            </AppShellFooter>
           </AppShell>
         </MantineProvider>
       </body>

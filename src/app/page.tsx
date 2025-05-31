@@ -18,8 +18,8 @@ import { pinkie, sunflower } from "@/utils/utils";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
+  FaAngleRight,
   FaCanadianMapleLeaf,
-  FaChevronRight,
   FaCode,
   FaForwardFast,
   FaLaptopCode,
@@ -45,7 +45,7 @@ export default function Home() {
       timingFunction="ease"
     >
       {(styles) => (
-        <Stack style={styles} justify="space-between" h="100vh" pb="xl">
+        <Stack style={styles} justify="space-between" pb="xl">
           <Stack gap="xs" px="lg">
             <Center>
               <TextAnimate.Typewriter
@@ -246,7 +246,7 @@ export default function Home() {
                       ...styles,
                     }}
                     onClick={() => router.push("/projects")}
-                    rightSection={<FaChevronRight />}
+                    rightSection={<FaAngleRight />}
                   >
                     Check out my projects!
                   </Button>
@@ -256,11 +256,20 @@ export default function Home() {
           </Stack>
           <Transition
             mounted={!skip && !complete}
-            transition="pop"
+            transition="slide-right"
             duration={250}
           >
             {(styles) => (
-              <Container mb={215} style={styles}>
+              <Container
+                // mb={215}
+                opacity={0.5}
+                style={{
+                  ...styles,
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                }}
+              >
                 <Button
                   variant="light"
                   color={pinkie}
