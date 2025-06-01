@@ -228,7 +228,7 @@ export default function Home() {
                             WebkitTextFillColor: "transparent",
                           }}
                         >
-                          I&apos;m a web developer based in Ontario. 🇨🇦
+                          I&apos;m a web developer based in Ontario.
                         </Highlight>
                       </ListItem>
                     </Paper>
@@ -346,7 +346,7 @@ export default function Home() {
                 transition="pop"
                 duration={skip ? 0 : 500}
                 timingFunction="ease"
-                onEntered={() => setComplete(true)}
+                onEnter={() => setComplete(true)}
               >
                 {(styles) => (
                   <Container>

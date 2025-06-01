@@ -47,7 +47,7 @@ export default function Header() {
       <Stack align="flex-start" justify="space-between" h="100%">
         <Group>
           <Avatar
-            size={mobile ? "xl" : "lg"}
+            size={mobile ? "lg" : "lg"}
             p="2px"
             src="photo-circle.png"
             style={{
@@ -55,7 +55,7 @@ export default function Header() {
             }}
           />
           <Text
-            size="xl"
+            size={mobile ? "lg" : "xl"}
             fw={700}
             variant="gradient"
             gradient={{
@@ -75,7 +75,7 @@ export default function Header() {
           >
             <ActionIcon
               mt={2}
-              ml="lg"
+              ml={4}
               size="xl"
               variant="subtle"
               color={sunflower}
