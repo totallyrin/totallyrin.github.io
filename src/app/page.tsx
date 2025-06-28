@@ -215,15 +215,7 @@ export default function Home() {
                         flex={1}
                         w="100%"
                       >
-                        <Highlight
-                          highlight={["web developer"]}
-                          highlightStyles={{
-                            backgroundImage: `linear-gradient(90deg, ${pinkie}, ${sunflower})`,
-                            fontWeight: 700,
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                          }}
-                        >
+                        <Highlight highlight={["web developer"]}>
                           I&apos;m a web developer based in Ontario.
                         </Highlight>
                       </ListItem>
@@ -252,12 +244,6 @@ export default function Home() {
                             "frontend",
                             "backend",
                           ]}
-                          highlightStyles={{
-                            backgroundImage: `linear-gradient(90deg, ${pinkie}, ${sunflower})`,
-                            fontWeight: 700,
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                          }}
                         >
                           I specialise in building modern, responsive web
                           applications using technologies like React, Next.js,
@@ -286,12 +272,6 @@ export default function Home() {
                             "responsive design",
                             "seamless user experiences",
                           ]}
-                          highlightStyles={{
-                            backgroundImage: `linear-gradient(90deg, ${pinkie}, ${sunflower})`,
-                            fontWeight: 700,
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                          }}
                         >
                           Whether I&apos;m building components, debugging layout
                           quirks, or integrating third-party APIs, I care about
@@ -322,12 +302,6 @@ export default function Home() {
                               // "exploring the outdoors",
                             ]
                           }
-                          highlightStyles={{
-                            backgroundImage: `linear-gradient(90deg, ${pinkie}, ${sunflower})`,
-                            fontWeight: 700,
-                            WebkitBackgroundClip: "text",
-                            WebkitTextFillColor: "transparent",
-                          }}
                         >
                           In my spare time, I enjoy gaming, hanging out with my
                           cat, and exploring the outdoors.

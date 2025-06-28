@@ -1,5 +1,6 @@
 import { Source_Code_Pro } from "next/font/google";
 import { createTheme } from "@mantine/core";
+import { pinkie, sunflower } from "@/utils/utils";
 
 // const inter = Inter({subsets: ["latin"]});
 const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
@@ -9,6 +10,23 @@ export const theme = createTheme({
   // primaryShade: 6,
   autoContrast: true,
   defaultRadius: "md",
+  defaultGradient: {
+    from: pinkie,
+    to: sunflower,
+    deg: 90,
+  },
+  components: {
+    Highlight: {
+      defaultProps: {
+        highlightStyles: {
+          backgroundImage: `linear-gradient(90deg, ${pinkie}, ${sunflower})`,
+          fontWeight: 700,
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        },
+      },
+    },
+  },
   colors: {
     sunflower: [
       "#FFE8C2",

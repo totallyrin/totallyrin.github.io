@@ -51,15 +51,7 @@ export default function Work() {
             <Space h="xs" />
             <List>
               <ListItem>
-                <Highlight
-                  highlight={["Next.js", "NeonDB"]}
-                  highlightStyles={{
-                    backgroundImage: "linear-gradient(90deg, #FC6471, #FFC66D)",
-                    fontWeight: 700,
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
+                <Highlight highlight={["Next.js", "NeonDB"]}>
                   Design, develop, and maintain company website using Next.js
                   and NeonDB, ensuring it is user-friendly and optimised across
                   all devices and browsers
@@ -122,12 +114,6 @@ export default function Work() {
                     "SQLite",
                     "MongoDB",
                   ]}
-                  highlightStyles={{
-                    backgroundImage: "linear-gradient(90deg, #FC6471, #FFC66D)",
-                    fontWeight: 700,
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
                 >
                   Developed full-stack applications using React, Next.js, Django
                   REST framework, Node.js, SQLite, and MongoDB
@@ -153,12 +139,6 @@ export default function Work() {
                     "Data Structures",
                     "Logic for Computing",
                   ]}
-                  highlightStyles={{
-                    backgroundImage: "linear-gradient(90deg, #FC6471, #FFC66D)",
-                    fontWeight: 700,
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
                 >
                   Assisted students in understanding Java, Computer
                   Architecture, Data Structures, and Logic for Computing
