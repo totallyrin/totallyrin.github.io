@@ -13,7 +13,6 @@ import {
   Text,
   Title,
   Transition,
-  useComputedColorScheme,
 } from "@mantine/core";
 import { pinkie, sunflower } from "@/utils/utils";
 import { useEffect, useState } from "react";
@@ -28,9 +27,6 @@ import {
 } from "react-icons/fa6";
 
 export default function Home() {
-  const computedColorScheme = useComputedColorScheme("dark", {
-    getInitialValueInEffect: true,
-  });
   const router = useRouter();
   const [line, setLine] = useState(0);
   const [skip, setSkip] = useState(false);
@@ -69,7 +65,7 @@ export default function Home() {
                 }}
               >
                 <Button
-                  variant={computedColorScheme === "dark" ? "light" : "filled"}
+                  variant="light"
                   color={pinkie}
                   onClick={() => {
                     setLine(100);
@@ -288,7 +284,7 @@ export default function Home() {
                           highlight={[
                             "clean, maintainable code",
                             "responsive design",
-                            "seamless user" + " experiences",
+                            "seamless user experiences",
                           ]}
                           highlightStyles={{
                             backgroundImage: `linear-gradient(90deg, ${pinkie}, ${sunflower})`,
@@ -351,9 +347,7 @@ export default function Home() {
                 {(styles) => (
                   <Container>
                     <Button
-                      variant={
-                        computedColorScheme === "dark" ? "light" : "filled"
-                      }
+                      variant="light"
                       color={sunflower}
                       style={{
                         ...styles,

@@ -1,6 +1,5 @@
 "use client";
 import {
-  ActionIcon,
   Avatar,
   FloatingIndicator,
   Group,
@@ -9,15 +8,10 @@ import {
   TabsList,
   TabsTab,
   Text,
-  Tooltip,
-  useComputedColorScheme,
-  useMantineColorScheme,
 } from "@mantine/core";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { pinkie, sunflower } from "@/utils/utils";
-import { IoSunny } from "react-icons/io5";
-import { FaMoon } from "react-icons/fa6";
 import { useMediaQuery } from "@mantine/hooks";
 
 export default function Header() {
@@ -32,15 +26,6 @@ export default function Header() {
     controlsRefs[val] = node;
     setControlsRefs(controlsRefs);
   };
-  const { setColorScheme } = useMantineColorScheme();
-  const computedColorScheme = useComputedColorScheme("dark", {
-    getInitialValueInEffect: true,
-  });
-  const [scheme, setScheme] = useState("dark");
-
-  useEffect(() => {
-    setScheme(computedColorScheme);
-  }, [computedColorScheme]);
 
   return (
     <Group m="xl" justify="space-between" align="center">
@@ -67,35 +52,6 @@ export default function Header() {
             Lucy W.
           </Text>
         </Group>
-        {mobile && (
-          <Tooltip
-            color={sunflower}
-            c="#242424"
-            label={scheme === "light" ? "Dark Mode" : "Light Mode"}
-          >
-            <ActionIcon
-              mt={2}
-              ml={4}
-              size="xl"
-              variant="subtle"
-              color={sunflower}
-              style={{
-                transitionDuration: "250ms",
-              }}
-              onClick={() =>
-                setColorScheme(
-                  computedColorScheme === "light" ? "dark" : "light",
-                )
-              }
-            >
-              {scheme === "light" ? (
-                <FaMoon size="1.5em" />
-              ) : (
-                <IoSunny size="1.5em" />
-              )}
-            </ActionIcon>
-          </Tooltip>
-        )}
       </Stack>
       <Group>
         <Group>
@@ -110,7 +66,7 @@ export default function Header() {
             onChange={(value: string | null) =>
               value === "home" ? router.push("/") : router.push(`/${value}`)
             }
-            color={scheme === "dark" ? "#3f2c2e" : sunflower}
+            color="#3f2c2e"
             style={{
               width: "100%", // Ensures parent covers full horizontal space
               justifyContent: "flex-end", // Right-align the actual tabs
@@ -131,7 +87,7 @@ export default function Header() {
                   <Text c={pinkie} fw={500}>
                     00.
                   </Text>
-                  <Text c={scheme === "dark" ? sunflower : undefined} fw={500}>
+                  <Text c={sunflower} fw={500}>
                     Home
                   </Text>
                 </Group>
@@ -147,7 +103,7 @@ export default function Header() {
                   <Text c={pinkie} fw={500}>
                     01.
                   </Text>
-                  <Text c={scheme === "dark" ? sunflower : undefined} fw={500}>
+                  <Text c={sunflower} fw={500}>
                     Projects
                   </Text>
                 </Group>
@@ -163,7 +119,7 @@ export default function Header() {
                   <Text c={pinkie} fw={500}>
                     02.
                   </Text>
-                  <Text c={scheme === "dark" ? sunflower : undefined} fw={500}>
+                  <Text c={sunflower} fw={500}>
                     Resume
                   </Text>
                 </Group>
@@ -200,34 +156,6 @@ export default function Header() {
                 }
               />
             </TabsList>
-            {!mobile && (
-              <Tooltip
-                color={sunflower}
-                c="#242424"
-                label={scheme === "light" ? "Dark Mode" : "Light Mode"}
-              >
-                <ActionIcon
-                  ml="xs"
-                  size="xl"
-                  variant="subtle"
-                  color={sunflower}
-                  style={{
-                    transitionDuration: "250ms",
-                  }}
-                  onClick={() =>
-                    setColorScheme(
-                      computedColorScheme === "light" ? "dark" : "light",
-                    )
-                  }
-                >
-                  {scheme === "light" ? (
-                    <FaMoon size="1.5em" />
-                  ) : (
-                    <IoSunny size="1.5em" />
-                  )}
-                </ActionIcon>
-              </Tooltip>
-            )}
           </Tabs>
         </Group>
       </Group>

@@ -31,8 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en" {...mantineHtmlProps}>
       <body>
-        <ColorSchemeScript defaultColorScheme="dark" />
-        <MantineProvider theme={theme} defaultColorScheme="dark">
+        <ColorSchemeScript forceColorScheme="dark" />
+        <MantineProvider theme={theme} forceColorScheme="dark">
           <AppShell
             header={{ height: { base: 211.067, "690px": 120.667 } }}
             footer={{ height: 105 }}
@@ -45,6 +45,7 @@ export default function RootLayout({
               style={{
                 maxWidth: "100vw",
                 overflowX: "hidden",
+                backgroundColor: "var(--mantine-color-dark-8)",
               }}
             >
               <Stack

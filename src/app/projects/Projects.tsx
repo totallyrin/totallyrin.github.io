@@ -45,7 +45,7 @@ const ProjectCard = ({
   }, [computedColorScheme]);
 
   return (
-    <Card withBorder p="md" bg="none">
+    <Card withBorder p="md" bg="var(--mantine-color-body)">
       <CardSection withBorder mb="xs">
         <BackgroundImage src={image} h={300} p="xl"></BackgroundImage>
       </CardSection>
