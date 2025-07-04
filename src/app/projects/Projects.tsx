@@ -20,7 +20,12 @@ import { pinkie, sunflower } from "@/utils/utils";
 import { BiLogoTypescript } from "react-icons/bi";
 import { RiNextjsFill } from "react-icons/ri";
 import Link from "next/link";
-import { SiGooglecloud, SiPostgresql, SiSqlite } from "react-icons/si";
+import {
+  SiGooglecloud,
+  SiPostgresql,
+  SiSqlite,
+  SiSupabase,
+} from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa6";
 
 const ProjectCard = ({
@@ -95,6 +100,44 @@ export default function Projects() {
     >
       {(styles) => (
         <SimpleGrid cols={{ base: 1, md: 2 }} style={styles}>
+          <ProjectCard
+            title="totally-crosswords"
+            description={[
+              "Web application for collaborative crossword puzzles",
+              "Supabase database with real-time updates for collaboration",
+            ]}
+            image="totally-crosswords.png"
+            link="https://totally-crosswords.vercel.app/"
+            icons={[
+              <Tooltip
+                key="0"
+                label="Typescript"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <BiLogoTypescript color={pinkie} size="1.5em" />
+              </Tooltip>,
+              <Tooltip
+                key="1"
+                label="Next.js"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <RiNextjsFill color={pinkie} size="1.5em" />
+              </Tooltip>,
+              <Tooltip
+                key="2"
+                label="Supabase"
+                color={pinkie}
+                c="#242424"
+                fw={500}
+              >
+                <SiSupabase color={pinkie} size="1.5em" />
+              </Tooltip>,
+            ]}
+          />
           <ProjectCard
             title="Rainbow Railroad RP"
             description={[
