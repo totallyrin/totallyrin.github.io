@@ -32,9 +32,14 @@ export default function Education() {
           }}
         >
           <TimelineItem
-            title="Bachelor of Computing, Software Design (Hons.)"
+            title="Bachelor of Computing (Honours)"
             bullet={<FaGraduationCap color={"#242424"} />}
           >
+            <Text size="sm" pb="xs">
+              <i>
+                Specialization in Software Design with Professional Internship
+              </i>
+            </Text>
             <Text size="sm">Queen&apos;s University</Text>
             <Text c="dimmed" size="sm">
               September 2020 - June 2025
@@ -43,7 +48,7 @@ export default function Education() {
             <List>
               <ListItem>Graduated with a GPA of 3.82</ListItem>
               <ListItem>
-                Academic Excellence: Dean’s Honours List (2021 – 2022)
+                Academic Excellence: Dean&apos;s Honours List (2021 – 2022)
               </ListItem>
             </List>
           </TimelineItem>
