@@ -46,41 +46,41 @@ export default function Work() {
             <Space h="xs" />
             <Text size="sm">Rainbow Railroad Roleplay, LLC</Text>
             <Text c="dimmed" size="sm">
-              October 2024 - present
+              October 2024 - July 2025
             </Text>
             <Space h="xs" />
             <List>
               <ListItem>
                 <Highlight highlight={["Next.js", "NeonDB"]}>
-                  Design, develop, and maintain company website using Next.js
-                  and NeonDB, ensuring it is user-friendly and optimised across
-                  all devices and browsers
+                  Designed, developed, and maintained company website using
+                  Next.js and NeonDB, ensuring it was user-friendly and
+                  optimised across all devices and browsers
                 </Highlight>
               </ListItem>
               <ListItem>
-                Regularly update site content to reflect current information,
+                Regularly updated site content to reflect current information,
                 ensuring accuracy, relevancy, and alignment with brand
                 guidelines and user needs
               </ListItem>
               <ListItem>
-                Monitor website performance and security, addressing issues that
-                arise
+                Monitored website performance and security, addressing issues
+                that arise
               </ListItem>
               <ListItem>
-                Identify, troubleshoot, and resolve any technical issues,
+                Identified, troubleshooted, and resolved any technical issues,
                 ensuring smooth operation with minimal downtime
               </ListItem>
               <ListItem>
-                Automate tasks and deploy updates, ensuring system stability
+                Automated tasks and deploy updates, ensuring system stability
               </ListItem>
               <ListItem>
-                Test code to preserve quality and ensure smooth updates
+                Tested code to preserve quality and ensure smooth updates
               </ListItem>
               <ListItem>
-                Implement SEO strategies to improve visibility
+                Implemented SEO strategies to improve visibility
               </ListItem>
               <ListItem>
-                Maintain game server infrastructure and monitor performance
+                Maintained game server infrastructure and monitor performance
               </ListItem>
             </List>
           </TimelineItem>

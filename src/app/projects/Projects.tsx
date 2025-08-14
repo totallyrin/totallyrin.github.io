@@ -104,7 +104,8 @@ export default function Projects() {
             title="totally-crosswords"
             description={[
               "Web application for collaborative crossword puzzles",
-              "Supabase database with real-time updates for collaboration",
+              "Crossword puzzles pulled from API data",
+              "Supabase database with real-time updates for live collaboration with users anywhere in the world",
             ]}
             image="totally-crosswords.png"
             link="https://totally-crosswords.vercel.app/"
@@ -139,17 +140,16 @@ export default function Projects() {
             ]}
           />
           <ProjectCard
-            title="Rainbow Railroad RP"
+            title="Homelands RP"
             description={[
-              "Designed, created, deployed" +
-                " and currently maintain web application for Rainbow Railroad Roleplay, LLC",
+              "Web application to support and supplement a RedM roleplay server and community",
               "Dynamic forms with immediate user feedback",
               "Protected administration views and tools",
-              "Integration with Tebex store API and Discord OAuth API",
+              "Integration with Discord OAuth API for authentication and protected/role-based page access",
               "Integration with serverless NeonDB PostgreSQL database",
             ]}
-            image="rrrp.png"
-            link="https://rainbowrailroadrp.com/"
+            image="homelandsrp.png"
+            link="https://homelandsrp.com/"
             icons={[
               <Tooltip
                 key="0"
