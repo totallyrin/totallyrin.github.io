@@ -2,8 +2,8 @@
 import { TextAnimate } from "@gfazioli/mantine-text-animate";
 import {
   Avatar,
-  Button,
   Container,
+  Divider,
   Group,
   Highlight,
   List,
@@ -12,18 +12,23 @@ import {
   Stack,
   Text,
   Title,
+  Tooltip,
   Transition,
 } from "@mantine/core";
 import { pinkie, sunflower } from "@/utils/utils";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
-  FaAngleRight,
   FaCanadianMapleLeaf,
   FaCode,
   FaLaptopCode,
   FaUser,
 } from "react-icons/fa6";
+import { CustomBadge } from "@/app/resume/Skills";
+import { BiLogoTypescript } from "react-icons/bi";
+import { RiNextjsFill } from "react-icons/ri";
+import { SiPostgresql, SiSupabase } from "react-icons/si";
+import { ProjectCard } from "@/app/projects/Projects";
 
 export default function Home() {
   const router = useRouter();
@@ -182,8 +187,16 @@ export default function Home() {
                       flex={1}
                       w="100%"
                     >
-                      <Highlight highlight={["web developer"]}>
-                        I&apos;m a web developer based in Ontario.
+                      <Highlight
+                        highlight={[
+                          "web developer",
+                          "developer",
+                          "detail-oriented",
+                        ]}
+                      >
+                        I&apos;m a developer based in Ontario. I&apos;m
+                        extremely detail-oriented, and take great pride in the
+                        things I create.
                       </Highlight>
                     </ListItem>
                   </Paper>
@@ -271,13 +284,39 @@ export default function Home() {
                         }
                       >
                         In my spare time, I enjoy gaming, hanging out with my
-                        cat, and exploring the outdoors.
+                        cat, and exploring the outdoors with my dog.
                       </Highlight>
                     </ListItem>
                   </Paper>
                 )}
               </Transition>
             </List>
+            {/*<Transition*/}
+            {/*  mounted={skip || line >= 9}*/}
+            {/*  transition="pop"*/}
+            {/*  duration={skip ? 0 : 500}*/}
+            {/*  timingFunction="ease"*/}
+            {/*  onEnter={() =>*/}
+            {/*    setTimeout(() => setLine(line + 1), skip ? 0 : pause)*/}
+            {/*  }*/}
+            {/*>*/}
+            {/*  {(styles) => (*/}
+            {/*    <Container>*/}
+            {/*      <Button*/}
+            {/*        variant="light"*/}
+            {/*        color={sunflower}*/}
+            {/*        style={{*/}
+            {/*          ...styles,*/}
+            {/*          transitionDuration: "250ms",*/}
+            {/*        }}*/}
+            {/*        onClick={() => router.push("/projects")}*/}
+            {/*        rightSection={<FaAngleRight />}*/}
+            {/*      >*/}
+            {/*        Check out my projects!*/}
+            {/*      </Button>*/}
+            {/*    </Container>*/}
+            {/*  )}*/}
+            {/*</Transition>*/}
             <Transition
               mounted={skip || line >= 9}
               transition="pop"
@@ -286,20 +325,90 @@ export default function Home() {
               onEnter={() => setComplete(true)}
             >
               {(styles) => (
-                <Container>
-                  <Button
-                    variant="light"
-                    color={sunflower}
-                    style={{
-                      ...styles,
-                      transitionDuration: "250ms",
-                    }}
-                    onClick={() => router.push("/projects")}
-                    rightSection={<FaAngleRight />}
-                  >
-                    Check out my projects!
-                  </Button>
-                </Container>
+                <Paper
+                  withBorder
+                  py="xs"
+                  px="md"
+                  mt="xs"
+                  style={styles}
+                  ml="lg"
+                >
+                  <Title order={3} c={pinkie} ta="center">
+                    At a Glance...
+                  </Title>
+                  <Stack gap="xs" pb="xs" align="center">
+                    <Divider mt="xs" w="50%" />
+                    <Stack>
+                      <Title order={4} c={sunflower} ta="center">
+                        My Core Stack
+                      </Title>
+                      <Group>
+                        <CustomBadge
+                          leftSection={<BiLogoTypescript size="1.5em" />}
+                        >
+                          TypeScript
+                        </CustomBadge>
+                        <CustomBadge
+                          leftSection={<RiNextjsFill size="1.5em" />}
+                        >
+                          Next.js
+                        </CustomBadge>
+                        <CustomBadge
+                          leftSection={<SiPostgresql size="1.5em" />}
+                        >
+                          PostgreSQL
+                        </CustomBadge>
+                      </Group>
+                    </Stack>
+                    <Divider orientation="horizontal" mt="xs" w="50%" />
+                    <Stack>
+                      <Title order={4} c={sunflower} ta="center">
+                        Favourite Project
+                      </Title>
+                      <Container maw={700}>
+                        <ProjectCard
+                          title="totally-crosswords"
+                          description={[
+                            "Web application for collaborative crossword puzzles",
+                            "Crossword puzzles pulled from API data",
+                            "Supabase database with real-time updates for live collaboration with users anywhere in the world",
+                          ]}
+                          image="totally-crosswords.png"
+                          link="https://totally-crosswords.vercel.app/"
+                          icons={[
+                            <Tooltip
+                              key="0"
+                              label="Typescript"
+                              color={pinkie}
+                              c="#242424"
+                              fw={500}
+                            >
+                              <BiLogoTypescript color={pinkie} size="1.5em" />
+                            </Tooltip>,
+                            <Tooltip
+                              key="1"
+                              label="Next.js"
+                              color={pinkie}
+                              c="#242424"
+                              fw={500}
+                            >
+                              <RiNextjsFill color={pinkie} size="1.5em" />
+                            </Tooltip>,
+                            <Tooltip
+                              key="2"
+                              label="Supabase"
+                              color={pinkie}
+                              c="#242424"
+                              fw={500}
+                            >
+                              <SiSupabase color={pinkie} size="1.5em" />
+                            </Tooltip>,
+                          ]}
+                        />
+                      </Container>
+                    </Stack>
+                  </Stack>
+                </Paper>
               )}
             </Transition>
           </Stack>

@@ -28,7 +28,7 @@ import {
 } from "react-icons/si";
 import { FaNodeJs } from "react-icons/fa6";
 
-const ProjectCard = ({
+export const ProjectCard = ({
   title,
   description,
   image,
@@ -50,7 +50,7 @@ const ProjectCard = ({
   }, [computedColorScheme]);
 
   return (
-    <Card withBorder p="md" bg="var(--mantine-color-body)">
+    <Card withBorder p="md" bg="var(--mantine-color-body)" h="100%">
       <CardSection withBorder mb="xs">
         <BackgroundImage src={image} h={300} p="xl"></BackgroundImage>
       </CardSection>
@@ -99,186 +99,190 @@ export default function Projects() {
       timingFunction="ease"
     >
       {(styles) => (
-        <SimpleGrid cols={{ base: 1, md: 2 }} style={styles}>
-          <ProjectCard
-            title="totally-crosswords"
-            description={[
-              "Web application for collaborative crossword puzzles",
-              "Crossword puzzles pulled from API data",
-              "Supabase database with real-time updates for live collaboration with users anywhere in the world",
-            ]}
-            image="totally-crosswords.png"
-            link="https://totally-crosswords.vercel.app/"
-            icons={[
-              <Tooltip
-                key="0"
-                label="Typescript"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <BiLogoTypescript color={pinkie} size="1.5em" />
-              </Tooltip>,
-              <Tooltip
-                key="1"
-                label="Next.js"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <RiNextjsFill color={pinkie} size="1.5em" />
-              </Tooltip>,
-              <Tooltip
-                key="2"
-                label="Supabase"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <SiSupabase color={pinkie} size="1.5em" />
-              </Tooltip>,
-            ]}
-          />
-          <ProjectCard
-            title="Homelands RP"
-            description={[
-              "Web application to support and supplement a RedM roleplay server and community",
-              "Dynamic forms with immediate user feedback",
-              "Protected administration views and tools",
-              "Integration with Discord OAuth API for authentication and protected/role-based page access",
-              "Integration with serverless NeonDB PostgreSQL database",
-            ]}
-            image="homelandsrp.png"
-            link="https://homelandsrp.com/"
-            icons={[
-              <Tooltip
-                key="0"
-                label="Typescript"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <BiLogoTypescript color={pinkie} size="1.5em" />
-              </Tooltip>,
-              <Tooltip
-                key="1"
-                label="Next.js"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <RiNextjsFill color={pinkie} size="1.5em" />
-              </Tooltip>,
-              <Tooltip
-                key="2"
-                label="PostgreSQL"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <SiPostgresql color={pinkie} size="1.5em" />
-              </Tooltip>,
-            ]}
-          />
-          <ProjectCard
-            title="RRRP Trading Cards"
-            description={[
-              "Web application to create, manage, and display character trading cards",
-              "PostgreSQL database stores trading card information",
-              "Discord OAuth login and session management using Next-Auth",
-              "Google Cloud Storage integration for image hosting",
-            ]}
-            image="rrrptradingcards.png"
-            link="https://rrrptradingcards.vercel.app/"
-            icons={[
-              <Tooltip
-                key="0"
-                label="Typescript"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <BiLogoTypescript color={pinkie} size="1.5em" />
-              </Tooltip>,
-              <Tooltip
-                key="1"
-                label="Next.js"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <RiNextjsFill color={pinkie} size="1.5em" />
-              </Tooltip>,
-              <Tooltip
-                key="2"
-                label="PostgreSQL"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <SiPostgresql color={pinkie} size="1.5em" />
-              </Tooltip>,
-              <Tooltip
-                key="3"
-                label="Google Cloud Storage"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <SiGooglecloud color={pinkie} size="1.5em" />
-              </Tooltip>,
-            ]}
-          />
-          <ProjectCard
-            title="TTSM"
-            description={[
-              "Web application to control gaming servers remotely",
-              "Next.js frontend, NodeJS backend",
-              "Custom credentials login using Next-Auth",
-              "Discord bot integration to control servers through Discord commands",
-            ]}
-            image="ttsm.png"
-            link="https://ttsm.vercel.app/"
-            icons={[
-              <Tooltip
-                key="0"
-                label="Typescript"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <BiLogoTypescript color={pinkie} size="1.5em" />
-              </Tooltip>,
-              <Tooltip
-                key="1"
-                label="Next.js"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <RiNextjsFill color={pinkie} size="1.5em" />
-              </Tooltip>,
-              <Tooltip
-                key="2"
-                label="Node.js"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <FaNodeJs key="2" color={pinkie} size="1.5em" />
-              </Tooltip>,
-              <Tooltip
-                key="3"
-                label="SQLite"
-                color={pinkie}
-                c="#242424"
-                fw={500}
-              >
-                <SiSqlite key="3" color={pinkie} size="1.5em" />
-              </Tooltip>,
-            ]}
-          />
-        </SimpleGrid>
+        <Stack style={styles} align="center">
+          <SimpleGrid
+            cols={{ base: 1, md: 2 }}
+            maw={{ lg: "100%", xl: "80%", xxl: "40%" }}
+            style={{
+              alignItems: "center",
+            }}
+          >
+            <ProjectCard
+              title="totally-crosswords"
+              description={[
+                "Web application for collaborative crossword puzzles that fetches and parses external API data into interactive, responsive React components",
+                "Real-time collaborative environment using Supabase WebSocket subscriptions, enabling instantaneous state synchronization for global users without requiring accounts",
+              ]}
+              image="totally-crosswords.png"
+              link="https://totally-crosswords.vercel.app/"
+              icons={[
+                <Tooltip
+                  key="0"
+                  label="Typescript"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <BiLogoTypescript color={pinkie} size="1.5em" />
+                </Tooltip>,
+                <Tooltip
+                  key="1"
+                  label="Next.js"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <RiNextjsFill color={pinkie} size="1.5em" />
+                </Tooltip>,
+                <Tooltip
+                  key="2"
+                  label="Supabase"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <SiSupabase color={pinkie} size="1.5em" />
+                </Tooltip>,
+              ]}
+            />
+            <ProjectCard
+              title="Homelands RP"
+              description={[
+                "Centralized community hub featuring Discord OAuth2 integration for secure, role-based access control (RBAC) across lore and administrative tools",
+                "PostgreSQL (NeonDB) database manages complex community data, including player applications, housing catalogs, and lore tracking",
+                "Dynamic forms with real-time validation to streamline the community onboarding and application process",
+              ]}
+              image="homelandsrp.png"
+              link="https://homelandsrp.com/"
+              icons={[
+                <Tooltip
+                  key="0"
+                  label="Typescript"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <BiLogoTypescript color={pinkie} size="1.5em" />
+                </Tooltip>,
+                <Tooltip
+                  key="1"
+                  label="Next.js"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <RiNextjsFill color={pinkie} size="1.5em" />
+                </Tooltip>,
+                <Tooltip
+                  key="2"
+                  label="PostgreSQL"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <SiPostgresql color={pinkie} size="1.5em" />
+                </Tooltip>,
+              ]}
+            />
+            <ProjectCard
+              title="RRRP Trading Cards"
+              description={[
+                "Full-stack character management system featuring a PostgreSQL database to handle relationships between users and card collections",
+                "Google Cloud Storage API for scalable image hosting, implementing secure upload pipelines for user-generated character assets",
+                "Next-Auth with Discord OAuth2 to manage secure user sessions and persistent data storage across the platform",
+                "Responsive, card-based interface that dynamically renders character stats and assets, ensuring a seamless experience across desktop and mobile devices",
+              ]}
+              image="rrrptradingcards.png"
+              link="https://rrrptradingcards.vercel.app/"
+              icons={[
+                <Tooltip
+                  key="0"
+                  label="Typescript"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <BiLogoTypescript color={pinkie} size="1.5em" />
+                </Tooltip>,
+                <Tooltip
+                  key="1"
+                  label="Next.js"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <RiNextjsFill color={pinkie} size="1.5em" />
+                </Tooltip>,
+                <Tooltip
+                  key="2"
+                  label="PostgreSQL"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <SiPostgresql color={pinkie} size="1.5em" />
+                </Tooltip>,
+                <Tooltip
+                  key="3"
+                  label="Google Cloud Storage"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <SiGooglecloud color={pinkie} size="1.5em" />
+                </Tooltip>,
+              ]}
+            />
+            <ProjectCard
+              title="TTSM"
+              description={[
+                "Remote infrastructure tool utilizing a Node.js backend to manage local game server states (start/stop/edit) via secure external web requests",
+                'Granular Permissions System and custom credentials via Next-Auth, allowing "admin" vs. "user" access for server configuration management',
+                "Integrated Discord bot that interfaces with the backend, allowing server control through chat commands",
+              ]}
+              image="ttsm.png"
+              link="https://ttsm.vercel.app/"
+              icons={[
+                <Tooltip
+                  key="0"
+                  label="Typescript"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <BiLogoTypescript color={pinkie} size="1.5em" />
+                </Tooltip>,
+                <Tooltip
+                  key="1"
+                  label="Next.js"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <RiNextjsFill color={pinkie} size="1.5em" />
+                </Tooltip>,
+                <Tooltip
+                  key="2"
+                  label="Node.js"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <FaNodeJs key="2" color={pinkie} size="1.5em" />
+                </Tooltip>,
+                <Tooltip
+                  key="3"
+                  label="SQLite"
+                  color={pinkie}
+                  c="#242424"
+                  fw={500}
+                >
+                  <SiSqlite key="3" color={pinkie} size="1.5em" />
+                </Tooltip>,
+              ]}
+            />
+          </SimpleGrid>
+        </Stack>
       )}
     </Transition>
   );

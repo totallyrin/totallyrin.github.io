@@ -109,8 +109,8 @@ export default function Header() {
                 </Group>
               </TabsTab>
               <TabsTab
-                value="experience"
-                ref={setControlRef("experience")}
+                value="resume"
+                ref={setControlRef("resume")}
                 style={{
                   transitionDuration: "250ms",
                 }}
