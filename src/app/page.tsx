@@ -170,247 +170,251 @@ export default function Home() {
                 )}
               </Stack>
             </Group>
-            <List center spacing="lg" mt="xs">
-              <Transition
-                mounted={skip || line >= 5}
-                transition="fade-down"
-                duration={skip ? 0 : 500}
-                timingFunction="ease"
-                onEntered={() =>
-                  setTimeout(() => setLine(line + 1), skip ? 0 : pause)
-                }
-              >
-                {(styles) => (
-                  <Paper withBorder py="xs" px="md" mb="xs" style={styles}>
-                    <ListItem
-                      icon={<FaCanadianMapleLeaf color={pinkie} size="1.5em" />}
-                      flex={1}
-                      w="100%"
-                    >
-                      <Highlight
-                        highlight={[
-                          "web developer",
-                          "developer",
-                          "detail-oriented",
-                        ]}
-                      >
-                        I&apos;m a developer based in Ontario. I&apos;m
-                        extremely detail-oriented, and take great pride in the
-                        things I create.
-                      </Highlight>
-                    </ListItem>
-                  </Paper>
-                )}
-              </Transition>
-              <Transition
-                mounted={skip || line >= 6}
-                transition="slide-left"
-                duration={skip ? 0 : 500}
-                timingFunction="ease"
-                onEntered={() =>
-                  setTimeout(() => setLine(line + 1), skip ? 0 : pause)
-                }
-              >
-                {(styles) => (
-                  <Paper withBorder py="xs" px="md" mb="xs" style={styles}>
-                    <ListItem
-                      icon={<FaLaptopCode color={pinkie} size="1.5em" />}
-                    >
-                      <Highlight
-                        highlight={[
-                          "React",
-                          "Next.js",
-                          "Node.js",
-                          "frontend",
-                          "backend",
-                        ]}
-                      >
-                        I specialise in building modern, responsive web
-                        applications using technologies like React, Next.js, and
-                        Node.js, with experience in both frontend and backend
-                        development.
-                      </Highlight>
-                    </ListItem>
-                  </Paper>
-                )}
-              </Transition>
-              <Transition
-                mounted={skip || line >= 7}
-                transition="slide-left"
-                duration={skip ? 0 : 500}
-                timingFunction="ease"
-                onEntered={() =>
-                  setTimeout(() => setLine(line + 1), skip ? 0 : pause)
-                }
-              >
-                {(styles) => (
-                  <Paper withBorder py="xs" px="md" mb="xs" style={styles}>
-                    <ListItem icon={<FaCode color={pinkie} size="1.5em" />}>
-                      <Highlight
-                        highlight={[
-                          "clean, maintainable code",
-                          "responsive design",
-                          "seamless user experiences",
-                        ]}
-                      >
-                        Whether I&apos;m building components, debugging layout
-                        quirks, or integrating third-party APIs, I care about
-                        clean, maintainable code, responsive design, and
-                        creating seamless user experiences across devices.
-                      </Highlight>
-                    </ListItem>
-                  </Paper>
-                )}
-              </Transition>
-              <Transition
-                mounted={skip || line >= 8}
-                transition="slide-left"
-                duration={skip ? 0 : 500}
-                timingFunction="ease"
-                onEntered={() =>
-                  setTimeout(() => setLine(line + 1), skip ? 0 : pause)
-                }
-              >
-                {(styles) => (
-                  <Paper withBorder py="xs" px="md" mb="xs" style={styles}>
-                    <ListItem icon={<FaUser color={pinkie} size="1.5em" />}>
-                      <Highlight
-                        highlight={
-                          [
-                            // "gaming",
-                            // "my cat",
-                            // "exploring the outdoors",
-                          ]
-                        }
-                      >
-                        In my spare time, I enjoy gaming, hanging out with my
-                        cat, and exploring the outdoors with my dog.
-                      </Highlight>
-                    </ListItem>
-                  </Paper>
-                )}
-              </Transition>
-            </List>
-            {/*<Transition*/}
-            {/*  mounted={skip || line >= 9}*/}
-            {/*  transition="pop"*/}
-            {/*  duration={skip ? 0 : 500}*/}
-            {/*  timingFunction="ease"*/}
-            {/*  onEnter={() =>*/}
-            {/*    setTimeout(() => setLine(line + 1), skip ? 0 : pause)*/}
-            {/*  }*/}
-            {/*>*/}
-            {/*  {(styles) => (*/}
-            {/*    <Container>*/}
-            {/*      <Button*/}
-            {/*        variant="light"*/}
-            {/*        color={sunflower}*/}
-            {/*        style={{*/}
-            {/*          ...styles,*/}
-            {/*          transitionDuration: "250ms",*/}
-            {/*        }}*/}
-            {/*        onClick={() => router.push("/projects")}*/}
-            {/*        rightSection={<FaAngleRight />}*/}
-            {/*      >*/}
-            {/*        Check out my projects!*/}
-            {/*      </Button>*/}
-            {/*    </Container>*/}
-            {/*  )}*/}
-            {/*</Transition>*/}
-            <Transition
-              mounted={skip || line >= 9}
-              transition="pop"
-              duration={skip ? 0 : 500}
-              timingFunction="ease"
-              onEnter={() => setComplete(true)}
-            >
-              {(styles) => (
-                <Paper
-                  withBorder
-                  py="xs"
-                  px="md"
-                  mt="xs"
-                  style={styles}
-                  ml="lg"
+            <Container>
+              <List center spacing="lg" mt="xs">
+                <Transition
+                  mounted={skip || line >= 5}
+                  transition="fade-down"
+                  duration={skip ? 0 : 500}
+                  timingFunction="ease"
+                  onEntered={() =>
+                    setTimeout(() => setLine(line + 1), skip ? 0 : pause)
+                  }
                 >
-                  <Title order={3} c={pinkie} ta="center">
-                    At a Glance...
-                  </Title>
-                  <Stack gap="xs" pb="xs" align="center">
-                    <Divider mt="xs" w="50%" />
-                    <Stack>
-                      <Title order={4} c={sunflower} ta="center">
-                        My Core Stack
-                      </Title>
-                      <Group>
-                        <CustomBadge
-                          leftSection={<BiLogoTypescript size="1.5em" />}
-                        >
-                          TypeScript
-                        </CustomBadge>
-                        <CustomBadge
-                          leftSection={<RiNextjsFill size="1.5em" />}
-                        >
-                          Next.js
-                        </CustomBadge>
-                        <CustomBadge
-                          leftSection={<SiPostgresql size="1.5em" />}
-                        >
-                          PostgreSQL
-                        </CustomBadge>
-                      </Group>
-                    </Stack>
-                    <Divider orientation="horizontal" mt="xs" w="50%" />
-                    <Stack>
-                      <Title order={4} c={sunflower} ta="center">
-                        Favourite Project
-                      </Title>
-                      <Container maw={700}>
-                        <ProjectCard
-                          title="totally-crosswords"
-                          description={[
-                            "Web application for collaborative crossword puzzles",
-                            "Crossword puzzles pulled from API data",
-                            "Supabase database with real-time updates for live collaboration with users anywhere in the world",
+                  {(styles) => (
+                    <Paper withBorder py="xs" px="md" mb="xs" style={styles}>
+                      <ListItem
+                        icon={
+                          <FaCanadianMapleLeaf color={pinkie} size="1.5em" />
+                        }
+                        flex={1}
+                        w="100%"
+                      >
+                        <Highlight
+                          highlight={[
+                            "web developer",
+                            "developer",
+                            "detail-oriented",
                           ]}
-                          image="totally-crosswords.png"
-                          link="https://totally-crosswords.vercel.app/"
-                          icons={[
-                            <Tooltip
-                              key="0"
-                              label="Typescript"
-                              color={pinkie}
-                              c="#242424"
-                              fw={500}
-                            >
-                              <BiLogoTypescript color={pinkie} size="1.5em" />
-                            </Tooltip>,
-                            <Tooltip
-                              key="1"
-                              label="Next.js"
-                              color={pinkie}
-                              c="#242424"
-                              fw={500}
-                            >
-                              <RiNextjsFill color={pinkie} size="1.5em" />
-                            </Tooltip>,
-                            <Tooltip
-                              key="2"
-                              label="Supabase"
-                              color={pinkie}
-                              c="#242424"
-                              fw={500}
-                            >
-                              <SiSupabase color={pinkie} size="1.5em" />
-                            </Tooltip>,
+                        >
+                          I&apos;m a developer based in Ontario. I&apos;m
+                          extremely detail-oriented, and take great pride in the
+                          things I create.
+                        </Highlight>
+                      </ListItem>
+                    </Paper>
+                  )}
+                </Transition>
+                <Transition
+                  mounted={skip || line >= 6}
+                  transition="slide-left"
+                  duration={skip ? 0 : 500}
+                  timingFunction="ease"
+                  onEntered={() =>
+                    setTimeout(() => setLine(line + 1), skip ? 0 : pause)
+                  }
+                >
+                  {(styles) => (
+                    <Paper withBorder py="xs" px="md" mb="xs" style={styles}>
+                      <ListItem
+                        icon={<FaLaptopCode color={pinkie} size="1.5em" />}
+                      >
+                        <Highlight
+                          highlight={[
+                            "React",
+                            "Next.js",
+                            "Node.js",
+                            "frontend",
+                            "backend",
                           ]}
-                        />
-                      </Container>
+                        >
+                          I specialise in building modern, responsive web
+                          applications using technologies like React, Next.js,
+                          and Node.js, with experience in both frontend and
+                          backend development.
+                        </Highlight>
+                      </ListItem>
+                    </Paper>
+                  )}
+                </Transition>
+                <Transition
+                  mounted={skip || line >= 7}
+                  transition="slide-left"
+                  duration={skip ? 0 : 500}
+                  timingFunction="ease"
+                  onEntered={() =>
+                    setTimeout(() => setLine(line + 1), skip ? 0 : pause)
+                  }
+                >
+                  {(styles) => (
+                    <Paper withBorder py="xs" px="md" mb="xs" style={styles}>
+                      <ListItem icon={<FaCode color={pinkie} size="1.5em" />}>
+                        <Highlight
+                          highlight={[
+                            "clean, maintainable code",
+                            "responsive design",
+                            "seamless user experiences",
+                          ]}
+                        >
+                          Whether I&apos;m building components, debugging layout
+                          quirks, or integrating third-party APIs, I care about
+                          clean, maintainable code, responsive design, and
+                          creating seamless user experiences across devices.
+                        </Highlight>
+                      </ListItem>
+                    </Paper>
+                  )}
+                </Transition>
+                <Transition
+                  mounted={skip || line >= 8}
+                  transition="slide-left"
+                  duration={skip ? 0 : 500}
+                  timingFunction="ease"
+                  onEntered={() =>
+                    setTimeout(() => setLine(line + 1), skip ? 0 : pause)
+                  }
+                >
+                  {(styles) => (
+                    <Paper withBorder py="xs" px="md" mb="xs" style={styles}>
+                      <ListItem icon={<FaUser color={pinkie} size="1.5em" />}>
+                        <Highlight
+                          highlight={
+                            [
+                              // "gaming",
+                              // "my cat",
+                              // "exploring the outdoors",
+                            ]
+                          }
+                        >
+                          In my spare time, I enjoy gaming, hanging out with my
+                          cat, and exploring the outdoors with my dog.
+                        </Highlight>
+                      </ListItem>
+                    </Paper>
+                  )}
+                </Transition>
+              </List>
+              {/*<Transition*/}
+              {/*  mounted={skip || line >= 9}*/}
+              {/*  transition="pop"*/}
+              {/*  duration={skip ? 0 : 500}*/}
+              {/*  timingFunction="ease"*/}
+              {/*  onEnter={() =>*/}
+              {/*    setTimeout(() => setLine(line + 1), skip ? 0 : pause)*/}
+              {/*  }*/}
+              {/*>*/}
+              {/*  {(styles) => (*/}
+              {/*    <Container>*/}
+              {/*      <Button*/}
+              {/*        variant="light"*/}
+              {/*        color={sunflower}*/}
+              {/*        style={{*/}
+              {/*          ...styles,*/}
+              {/*          transitionDuration: "250ms",*/}
+              {/*        }}*/}
+              {/*        onClick={() => router.push("/projects")}*/}
+              {/*        rightSection={<FaAngleRight />}*/}
+              {/*      >*/}
+              {/*        Check out my projects!*/}
+              {/*      </Button>*/}
+              {/*    </Container>*/}
+              {/*  )}*/}
+              {/*</Transition>*/}
+              <Transition
+                mounted={skip || line >= 9}
+                transition="pop"
+                duration={skip ? 0 : 500}
+                timingFunction="ease"
+                onEnter={() => setComplete(true)}
+              >
+                {(styles) => (
+                  <Paper
+                    withBorder
+                    py="xs"
+                    px="md"
+                    mt="xs"
+                    style={styles}
+                    ml="lg"
+                  >
+                    <Title order={3} c={pinkie} ta="center">
+                      At a Glance...
+                    </Title>
+                    <Stack gap="xs" pb="xs" align="center">
+                      <Divider mt="xs" w="50%" />
+                      <Stack>
+                        <Title order={4} c={sunflower} ta="center">
+                          My Core Stack
+                        </Title>
+                        <Group>
+                          <CustomBadge
+                            leftSection={<BiLogoTypescript size="1.5em" />}
+                          >
+                            TypeScript
+                          </CustomBadge>
+                          <CustomBadge
+                            leftSection={<RiNextjsFill size="1.5em" />}
+                          >
+                            Next.js
+                          </CustomBadge>
+                          <CustomBadge
+                            leftSection={<SiPostgresql size="1.5em" />}
+                          >
+                            PostgreSQL
+                          </CustomBadge>
+                        </Group>
+                      </Stack>
+                      <Divider orientation="horizontal" mt="xs" w="50%" />
+                      <Stack>
+                        <Title order={4} c={sunflower} ta="center">
+                          Favourite Project
+                        </Title>
+                        <Container maw={700}>
+                          <ProjectCard
+                            title="totally-crosswords"
+                            description={[
+                              "Web application for collaborative crossword puzzles",
+                              "Crossword puzzles pulled from API data",
+                              "Supabase database with real-time updates for live collaboration with users anywhere in the world",
+                            ]}
+                            image="totally-crosswords.png"
+                            link="https://totally-crosswords.vercel.app/"
+                            icons={[
+                              <Tooltip
+                                key="0"
+                                label="Typescript"
+                                color={pinkie}
+                                c="#242424"
+                                fw={500}
+                              >
+                                <BiLogoTypescript color={pinkie} size="1.5em" />
+                              </Tooltip>,
+                              <Tooltip
+                                key="1"
+                                label="Next.js"
+                                color={pinkie}
+                                c="#242424"
+                                fw={500}
+                              >
+                                <RiNextjsFill color={pinkie} size="1.5em" />
+                              </Tooltip>,
+                              <Tooltip
+                                key="2"
+                                label="Supabase"
+                                color={pinkie}
+                                c="#242424"
+                                fw={500}
+                              >
+                                <SiSupabase color={pinkie} size="1.5em" />
+                              </Tooltip>,
+                            ]}
+                          />
+                        </Container>
+                      </Stack>
                     </Stack>
-                  </Stack>
-                </Paper>
-              )}
-            </Transition>
+                  </Paper>
+                )}
+              </Transition>
+            </Container>
           </Stack>
         </Stack>
       )}
