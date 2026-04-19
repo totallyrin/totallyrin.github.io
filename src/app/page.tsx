@@ -370,14 +370,13 @@ export default function Home() {
                         </Title>
                         <Container maw={700}>
                           <ProjectCard
-                            title="totally-crosswords"
+                            title="Crossword Together"
                             description={[
-                              "Web application for collaborative crossword puzzles",
-                              "Crossword puzzles pulled from API data",
-                              "Supabase database with real-time updates for live collaboration with users anywhere in the world",
+                              "Web application for collaborative crossword puzzles that fetches and parses external API data into interactive, responsive React components",
+                              "Real-time collaborative environment using Supabase WebSocket subscriptions, enabling instantaneous state synchronization for global users without requiring accounts",
                             ]}
                             image="totally-crosswords.png"
-                            link="https://totally-crosswords.vercel.app/"
+                            link="https://crossword-together.vercel.app/"
                             icons={[
                               <Tooltip
                                 key="0"
