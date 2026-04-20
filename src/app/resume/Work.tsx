@@ -43,7 +43,7 @@ export default function Work() {
             title="Founder & Lead Developer"
             bullet={<FaShop color={"#242424"} />}
           >
-            <Text size="sm">TR Scripts (Tebex Store)</Text>
+            <Text size="sm">TR Scripts (Independent)</Text>
             <Text c="dimmed" size="sm">
               July 2025 - present
             </Text>
@@ -70,7 +70,7 @@ export default function Work() {
             title="Lead Developer"
             bullet={<FaFileCode color={"#242424"} />}
           >
-            <Text size="sm">Homelands RP (Independent Project)</Text>
+            <Text size="sm">Homelands RP (Independent)</Text>
             <Text c="dimmed" size="sm">
               July 2025 - present
             </Text>

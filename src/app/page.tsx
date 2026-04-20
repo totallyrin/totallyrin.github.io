@@ -198,7 +198,7 @@ export default function Home() {
                           ]}
                         >
                           I&apos;m a developer based in Ontario. I&apos;m
-                          extremely detail-oriented, and take great pride in the
+                          extremely detail-oriented and take great pride in the
                           things I create.
                         </Highlight>
                       </ListItem>
@@ -373,7 +373,7 @@ export default function Home() {
                             title="Crossword Together"
                             description={[
                               "Web application for collaborative crossword puzzles that fetches and parses external API data into interactive, responsive React components",
-                              "Real-time collaborative environment using Supabase WebSocket subscriptions, enabling instantaneous state synchronization for global users without requiring accounts",
+                              "Real-time collaborative environment using Supabase Realtime, enabling instantaneous state synchronization for global users without requiring accounts",
                             ]}
                             image="totally-crosswords.png"
                             link="https://crossword-together.vercel.app/"
