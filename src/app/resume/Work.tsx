@@ -50,7 +50,7 @@ export default function Work() {
           >
             <Text size="sm">TR Scripts (Independent)</Text>
             <Text c="dimmed" size="sm">
-              July 2025 - present
+              November 2025 - present
             </Text>
             <Space h="xs" />
             <List>
