@@ -93,14 +93,19 @@ export default function Work() {
                 features, improving player experience and server stability
               </ListItem>
               <ListItem>
-                Engineer and maintain web features including dynamic forms,
+                Build and maintain web features including dynamic forms,
                 authentication, and database-driven content
               </ListItem>
               <ListItem>
                 <Highlight highlight={["99% uptime"]}>
                   Monitor server performance, debug live issues, and deploy
-                  updates while maintaining 99% uptime
+                  updates with minimal downtime
                 </Highlight>
+              </ListItem>
+              <ListItem>
+                Coordinate feature development by delegating tasks, managing a
+                GitHub project board, and ensuring timely releases for scheduled
+                content and events
               </ListItem>
             </List>
           </TimelineItem>
