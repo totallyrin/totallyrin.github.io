@@ -21,9 +21,14 @@ import {
 
 export default function Work() {
   return (
-    <Paper withBorder px="xl" pb="xl" pt="lg">
+    <Paper
+      withBorder
+      px={{ base: "xs", xs: "xl" }}
+      pb={{ base: "xs", xs: "xl" }}
+      pt={{ base: "xs", xs: "lg" }}
+    >
       <Stack gap="xs" pb="xl">
-        <Title order={3} c={pinkie}>
+        <Title order={3} c={pinkie} ta={{ base: "center", xs: "left" }}>
           Experience
         </Title>
         <Timeline

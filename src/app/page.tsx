@@ -59,7 +59,7 @@ export default function Home() {
     >
       {(styles) => (
         <Stack style={styles} justify="space-between" pb="xl">
-          <Stack gap="xs" px="lg">
+          <Stack gap="xs" px={{ base: "xs", xs: "lg" }}>
             <Group justify="center" gap="xl" mb="xs">
               <Avatar
                 size={200}
@@ -71,7 +71,7 @@ export default function Home() {
               />
               <Stack gap="xs" w={297.6} h={124.1}>
                 {skip ? (
-                  <Title c={sunflower} order={1}>
+                  <Title c={sunflower} order={1} ta="center">
                     HELLO, WORLD!
                   </Title>
                 ) : (
@@ -87,11 +87,16 @@ export default function Home() {
                       setTimeout(() => setLine(line + 1), skip ? 0 : pause)
                     }
                     withCursor={!skip && line == 0}
+                    ta={{ base: "center", xs: "left" }}
                   />
                 )}
-                <Group gap="lg">
+                <Group gap="lg" justify={"center"}>
                   {skip ? (
-                    <Title fw={500} order={2}>
+                    <Title
+                      fw={500}
+                      order={2}
+                      ta={{ base: "center", xs: "left" }}
+                    >
                       I&apos;m
                     </Title>
                   ) : (
@@ -106,11 +111,17 @@ export default function Home() {
                       component={Title}
                       onTypeEnd={() => setLine(line + 1)}
                       withCursor={!skip && line == 1}
+                      ta={{ base: "center", xs: "left" }}
                     />
                   )}
                   <Group gap={0}>
                     {skip ? (
-                      <Title c={pinkie} fw={700} order={2}>
+                      <Title
+                        c={pinkie}
+                        fw={700}
+                        order={2}
+                        ta={{ base: "center", xs: "left" }}
+                      >
                         Lucy
                       </Title>
                     ) : (
@@ -125,10 +136,16 @@ export default function Home() {
                         component={Title}
                         onTypeEnd={() => setLine(line + 1)}
                         withCursor={!skip && line == 2}
+                        ta={{ base: "center", xs: "left" }}
                       />
                     )}
                     {skip ? (
-                      <Title fw={500} order={2} component={Title}>
+                      <Title
+                        fw={500}
+                        order={2}
+                        component={Title}
+                        ta={{ base: "center", xs: "left" }}
+                      >
                         .
                       </Title>
                     ) : (
@@ -145,12 +162,13 @@ export default function Home() {
                           setTimeout(() => setLine(line + 1), skip ? 0 : pause)
                         }
                         withCursor={!skip && line == 3}
+                        ta={{ base: "center", xs: "left" }}
                       />
                     )}
                   </Group>
                 </Group>
                 {skip ? (
-                  <Text c="dimmed" fw={500}>
+                  <Text c="dimmed" fw={500} ta={{ base: "center", xs: "left" }}>
                     And I really love programming.
                   </Text>
                 ) : (
@@ -166,12 +184,13 @@ export default function Home() {
                       setTimeout(() => setLine(line + 1), skip ? 0 : pause);
                     }}
                     withCursor={!skip && line == 4}
+                    ta={{ base: "center", xs: "left" }}
                   />
                 )}
               </Stack>
             </Group>
-            <Container>
-              <List center spacing="lg" mt="xs">
+            <Container p={0} maw="100%">
+              <List center spacing="lg" mt="xs" p={0}>
                 <Transition
                   mounted={skip || line >= 5}
                   transition="fade-down"
@@ -328,14 +347,7 @@ export default function Home() {
                 onEnter={() => setComplete(true)}
               >
                 {(styles) => (
-                  <Paper
-                    withBorder
-                    py="xs"
-                    px="md"
-                    mt="xs"
-                    style={styles}
-                    ml="lg"
-                  >
+                  <Paper withBorder py="xs" px="md" mt="xs" style={styles}>
                     <Title order={3} c={pinkie} ta="center">
                       At a Glance...
                     </Title>
@@ -345,7 +357,7 @@ export default function Home() {
                         <Title order={4} c={sunflower} ta="center">
                           My Core Stack
                         </Title>
-                        <Group>
+                        <Group justify="center">
                           <CustomBadge
                             leftSection={<BiLogoTypescript size="1.5em" />}
                           >
@@ -368,12 +380,12 @@ export default function Home() {
                         <Title order={4} c={sunflower} ta="center">
                           Favourite Project
                         </Title>
-                        <Container maw={700}>
+                        <Container maw={{ base: 325, xs: 700 }}>
                           <ProjectCard
                             title="Crossword Together"
                             description={[
                               "Web application for collaborative crossword puzzles that fetches and parses external API data into interactive, responsive React components",
-                              "Real-time collaborative environment using Supabase Realtime, enabling instantaneous state synchronization for global users without requiring accounts",
+                              "Real-time collaborative environment using Supabase Realtime, enabling instantaneous state synchronization for global users",
                             ]}
                             image="totally-crosswords.png"
                             link="https://crossword-together.vercel.app/"

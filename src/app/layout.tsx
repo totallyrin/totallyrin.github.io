@@ -36,12 +36,16 @@ export default function RootLayout({
           <AppShell
             header={{ height: { base: 211.067, "690px": 120.667 } }}
             footer={{ height: 105 }}
-            padding="xl"
+            padding={{ base: "sm", xs: "xl" }}
           >
             <AppShellHeader>
               <Header />
             </AppShellHeader>
             <AppShellMain
+              px={{
+                base: "sm",
+                xs: "xl",
+              }}
               style={{
                 maxWidth: "100vw",
                 overflowX: "hidden",

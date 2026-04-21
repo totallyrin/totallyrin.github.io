@@ -20,7 +20,7 @@ export default function Experience() {
       timingFunction="ease"
     >
       {(styles) => (
-        <Container>
+        <Container mx={0} px={0}>
           <Stack style={styles}>
             <Skills />
             <Work />

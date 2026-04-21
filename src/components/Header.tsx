@@ -28,7 +28,13 @@ export default function Header() {
   };
 
   return (
-    <Group m="xl" justify="space-between" align="center">
+    <Group
+      m={{ base: "md", xs: "xl" }}
+      gap={0}
+      justify="space-between"
+      align="center"
+      wrap="nowrap"
+    >
       <Stack align="flex-start" justify="space-between" h="100%">
         <Group>
           <Avatar
